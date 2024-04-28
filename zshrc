@@ -1,6 +1,13 @@
 alias rlsh="clear && exec \"$SHELL\""
-alias motd="fortune -a | sed ':a;N;\$!ba;s/([^\n])\n/\\\\1 /g;s/  / /g' | cowsay -W $(expr 3 \* $(tput cols) \/ 4 \- 2) -f \$(ls /usr/share/cowsay/cows | sort -R | head -1) | lolcat"
-motd
+
+if [[ -f "/etc/arch-release" ]]
+then
+  cowpath=/usr/share/cows
+else
+  cowpath=/usr/share/cowsay/cows
+fi
+
+alias motd="fortune -a | sed ':a;N;\$!ba;s/([^\n])\n/\\\\1 /g;s/  / /g' | cowsay -W $(expr 3 \* $(tput cols) \/ 4 \- 2) -f \$(ls $cowpath | sort -R | head -1) | lolcat"
 
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR='nvim'
@@ -19,3 +26,5 @@ zstyle ':omz:update' mode reminder  # remind me to update when available
 source $ZSH/oh-my-zsh.sh
 
 eval $(thefuck --alias)
+eval $(thefuck --alias FUCK)
+motd
