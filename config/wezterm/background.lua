@@ -2,17 +2,19 @@ local MAXBRIGHTNESS = 3
 local MINBRIGHTNESS = 1
 local BRIGHTNESSRANGE = MAXBRIGHTNESS - MINBRIGHTNESS
 
+local wezterm = require'wezterm'
+
 local backgrounds = {
     {
-        File = '/home/cyuria/wallpapers/cyber_girl.jpg',
+        File = wezterm.home_dir .. '/wallpapers/cyber_girl.jpg',
         brightness = 0.03,
     },
     {
-        File = '/home/cyuria/wallpapers/sword-red.png',
+        File = wezterm.home_dir .. '/wallpapers/sword-red.png',
         brightness = 0.01,
     },
     {
-        File = '/home/cyuria/wallpapers/vi-wallpaper-1080p.jpg',
+        File = wezterm.home_dir .. '/wallpapers/vi-wallpaper-1080p.jpg',
         brightness = 0.04,
     },
 }
