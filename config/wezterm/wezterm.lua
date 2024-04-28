@@ -10,8 +10,6 @@ config.window_padding = {
     bottom = 0,
 }
 
-config.font = wezterm.font('Victor Mono', { weight="DemiBold" })
-
 -- Setup remote access to my server
 config.ssh_domains = {
   {
