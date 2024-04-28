@@ -19,23 +19,4 @@ return {
         "nanozuki/tabby.nvim",
         lazy = false,
     },
-    -- pretty-fold.nvim
-    {
-        "anuvyklack/pretty-fold.nvim",
-        lazy = false,
-        opts = {
-            sections = {
-                left = {
-                    function()
-                        return vim.fn.getline(vim.v.foldstart)
-                    end,
-                    ' 󰝢  ', 'number_of_folded_lines', '  '
-                },
-                right = {
-                    '  ', 'percentage', ' |- '
-                },
-            },
-            fill_char = '󰇜',
-        },
-    },
 }

@@ -117,7 +117,6 @@ return {
     -- vim-matchup
     {
         "andymass/vim-matchup",
-        event = "VeryLazy",
     },
     -- vim-unimpaired
     {
