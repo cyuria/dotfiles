@@ -1,0 +1,26 @@
+#!/usr/bin/bash
+
+dotdir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+link () {
+  if [[ -L ~/.$1 ]]
+  then
+    return
+  fi
+  ln -sT $dotdir/$1 ~/.$1
+}
+
+for file in *
+do
+  if [[ $file == "config" || $file == "install" ]]
+  then
+    continue
+  fi
+  link $file
+done
+
+for file in config/*
+do
+  link $file
+done
+

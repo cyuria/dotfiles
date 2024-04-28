@@ -1,0 +1,7 @@
+--langdef=pod2
+--map-pod=+.pod2
+
+--regex-Pod=/^=head1[ \t]+(.+)/\1/c/
+--regex-Pod=/^=head2[ \t]+(.+)/\1/s/
+--regex-Pod=/^=head3[ \t]+(.+)/\1/s/
+--regex-Pod=/^=head4[ \t]+(.+)/\1/t/

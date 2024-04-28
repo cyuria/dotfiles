@@ -1,0 +1,4 @@
+--recurse
+--exclude=.git
+--exclude=build
+--exclude=node_modules

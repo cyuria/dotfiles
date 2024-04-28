@@ -1,0 +1,10 @@
+CompileFlags:
+    Add:
+        - "-Wall"
+
+---
+If:
+    PathMatch: .*\.ino
+CompileFlags:
+    Add:
+        - "-include Arduino.h"
