@@ -6,15 +6,15 @@ local wezterm = require'wezterm'
 
 local backgrounds = {
     {
-        File = wezterm.home_dir .. '/wallpapers/cyber_girl.jpg',
+        File = wezterm.home_dir .. '/.wallpapers/cyber_girl.jpg',
         brightness = 0.03,
     },
     {
-        File = wezterm.home_dir .. '/wallpapers/sword-red.png',
+        File = wezterm.home_dir .. '/.wallpapers/sword-red.png',
         brightness = 0.01,
     },
     {
-        File = wezterm.home_dir .. '/wallpapers/vi-wallpaper-1080p.jpg',
+        File = wezterm.home_dir .. '/.wallpapers/vi-wallpaper-1080p.jpg',
         brightness = 0.04,
     },
 }
