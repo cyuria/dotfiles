@@ -37,6 +37,10 @@ local ftypeopts = {
         tabstop = 8,
         shiftwidth = 8,
     },
+    rust = {
+        tabstop = 4,
+        shiftwidth = 4,
+    },
 }
 
 local formatonchange = {
