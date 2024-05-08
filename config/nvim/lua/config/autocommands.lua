@@ -2,28 +2,14 @@
 -- use function for smaller scope
 local ftypeopts = {
     defaults = {
-        tabstop = 2,
-        shiftwidth = 2,
-    },
-    python = {
         tabstop = 4,
         shiftwidth = 4,
+        expandtab = true,
     },
-    lua = {
-        tabstop = 4,
-        shiftwidth = 4,
-    },
-    vim = {
-        tabstop = 4,
-        shiftwidth = 4,
-    },
-    xml = {
-        tabstop = 4,
-        shiftwidth = 4,
-    },
-    java = {
-        tabstop = 4,
-        shiftwidth = 4,
+    c = {
+        tabstop = 8,
+        shiftwidth = 8,
+        expandtab = false,
     },
     help = {
         expandtab = false,
@@ -37,9 +23,9 @@ local ftypeopts = {
         tabstop = 8,
         shiftwidth = 8,
     },
-    rust = {
-        tabstop = 4,
-        shiftwidth = 4,
+    cpp = {
+        tabstop = 2,
+        shiftwidth = 2,
     },
 }
 
@@ -48,6 +34,7 @@ local formatonchange = {
     cpp = true,
     python = true,
     javascript = true,
+    meson = true,
 }
 
 local filetypes = {
@@ -64,12 +51,36 @@ local function LoadOpts(opts, buf)
 end
 
 local function LoadFiletypeOpts(opts)
-    local bufferopts = ftypeopts[vim.bo[opts.buf].filetype] or ftypeopts.defaults
-    LoadOpts(bufferopts, opts.buf)
+    local bufferopts = ftypeopts[vim.bo[opts.buf].filetype] or {}
+    LoadOpts(vim.tbl_extend('keep', bufferopts, ftypeopts.defaults), opts.buf)
 end
 
 local function load()
     local augroup = vim.api.nvim_create_augroup("openBufOpts", {})
+    vim.api.nvim_create_autocmd({ "BufWritePre", "FileWritePre" }, {
+        group = augroup,
+        callback = function()
+            if formatonchange[vim.bo.filetype] then
+                vim.lsp.buf.format()
+            end
+        end
+    })
+    vim.api.nvim_create_autocmd({ "BufWritePost", "FileWritePost" }, {
+        group = augroup,
+        callback = require 'config.functions'.reloadCtags,
+    });
+    vim.api.nvim_create_autocmd({ "BufWritePost", "FileWritePost" }, {
+        group = augroup,
+        command = "norm zx"
+    });
+    vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+        group = augroup,
+        callback = function()
+            if vim.o.background == 'dark' then
+                require 'config.coloursetup'.make_transparent()
+            end
+        end
+    })
     vim.api.nvim_create_autocmd({ "FileType" }, {
         group = augroup,
         callback = LoadFiletypeOpts,
@@ -94,41 +105,24 @@ local function load()
         group = augroup,
         command = 'bd!',
     })
-    vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+    vim.api.nvim_create_autocmd({ "LspAttach" }, {
         group = augroup,
-        callback = function()
-            if vim.o.background == 'dark' then
-                require 'config.coloursetup'.make_transparent()
-            end
-        end
+        callback = function(args)
+            -- See :h vim.lsp.formatexpr()
+            vim.bo[args.buf].formatexpr = 'v:lua.vim.lsp.formatexpr(#{timeout_ms:250})'
+        end,
     })
-    vim.api.nvim_create_autocmd({ "BufWritePre", "FileWritePre" }, {
-        group = augroup,
-        callback = function()
-            if formatonchange[vim.bo.filetype] then
-                vim.lsp.buf.format()
-            end
-        end
-    })
-    vim.api.nvim_create_autocmd({ "BufWritePost", "FileWritePost" }, {
-        group = augroup,
-        callback = require 'config.functions'.reloadCtags,
-    });
-    vim.api.nvim_create_autocmd({ "BufWritePost", "FileWritePost" }, {
-        group = augroup,
-        command = "norm zx"
-    });
     if require 'dependencies'.enable_discord then
+        vim.api.nvim_create_autocmd({ "BufLeave" }, {
+            group = augroup,
+            command = 'NvimcordUpdate',
+        })
         vim.api.nvim_create_autocmd({ "DirChanged" }, {
             group = augroup,
             callback = function()
                 local wsname = require 'nvimcord.workspace'.get_name()
                 require 'nvimcord.discord'.config.workspace_name = wsname
             end
-        })
-        vim.api.nvim_create_autocmd({ "BufLeave" }, {
-            group = augroup,
-            command = 'NvimcordUpdate',
         })
     end
     if require 'dependencies'.enable_unmerged then

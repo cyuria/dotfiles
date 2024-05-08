@@ -58,6 +58,13 @@ local customconfig = {
             },
         },
     },
+    snyk = {
+        init_options = {
+            snyk = {
+                activateSnykCode = true
+            }
+        }
+    }
 }
 
 local function get(lsp)
