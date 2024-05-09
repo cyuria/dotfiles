@@ -131,6 +131,7 @@ return {
     -- build.nvim
     {
         "cyuria/build.nvim",
+        dev = true,
         event = "VeryLazy",
         opts = {},
     }

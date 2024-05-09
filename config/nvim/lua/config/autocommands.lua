@@ -27,6 +27,10 @@ local ftypeopts = {
         tabstop = 2,
         shiftwidth = 2,
     },
+    yaml = {
+        tabstop = 2,
+        shiftwidth = 2,
+    },
 }
 
 local formatonchange = {
