@@ -27,4 +27,5 @@ source $ZSH/oh-my-zsh.sh
 
 eval $(thefuck --alias)
 eval $(thefuck --alias FUCK)
+eval $(repoctl completion)
 motd

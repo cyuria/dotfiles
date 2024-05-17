@@ -39,6 +39,7 @@ local formatonchange = {
     python = true,
     javascript = true,
     meson = true,
+    rust = true,
 }
 
 local filetypes = {

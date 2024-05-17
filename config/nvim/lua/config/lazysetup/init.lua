@@ -28,7 +28,7 @@ local plugins = {
     -- blackjack.nvim
     {
         "alanfortlink/blackjack.nvim",
-        cmd = "Blackjack",
+        cmd = "BlackJackNewGame",
     },
     "nvim-lua/plenary.nvim",
     { import = 'config.lazysetup.lazylspsetup' },
