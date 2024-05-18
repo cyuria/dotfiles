@@ -1,13 +1,16 @@
 alias rlsh="clear && exec \"$SHELL\""
 
-if [[ -f "/etc/arch-release" ]]
+if [ -z "$cowpath" ]
 then
-  cowpath=/usr/share/cows
-else
-  cowpath=/usr/share/cowsay/cows
+    if [[ -f "/etc/arch-release" ]]
+    then
+        cowpath=/usr/share/cows
+    else
+        cowpath=/usr/share/cowsay/cows
+    fi
 fi
 
-alias motd="fortune -a | sed ':a;N;\$!ba;s/([^\n])\n/\\\\1 /g;s/  / /g' | cowsay -W $(expr 3 \* $(tput cols) \/ 4 \- 2) -f \$(ls $cowpath | sort -R | head -1) | lolcat"
+alias motd="fortune -a | sed ':a;N;\$!ba;s/([^\n])\n/\\\\1 /g;s/  / /g' | cowsay -W $(expr 3 \* $(tput cols) \/ 4 \- 2) -f \$(find $cowpath | sort -R | head -1) | lolcat"
 
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR='nvim'
