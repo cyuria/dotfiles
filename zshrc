@@ -14,6 +14,7 @@ alias motd="fortune -a | sed ':a;N;\$!ba;s/([^\n])\n/\\\\1 /g;s/  / /g' | cowsay
 
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR='nvim'
+export GPG_TTY=$(tty)
 
 ZSH_THEME="nicoulaj"
 HYPHEN_INSENSITIVE="true"
