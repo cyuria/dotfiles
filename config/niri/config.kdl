@@ -191,6 +191,7 @@ layout {
 // which may be more convenient to use.
 spawn-at-startup "xwayland-satellite" ":1"
 spawn-at-startup "swww-daemon"
+spawn-at-startup "/usr/lib/xdg-desktop-portal"
 
 spawn-at-startup "alacritty"
 spawn-at-startup "vesktop"
