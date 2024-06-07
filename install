@@ -7,7 +7,7 @@ link () {
   then
     return
   fi
-  ln -sT $dotdir/$1 ~/.$1
+  ln -s $dotdir/$1 ~/.$1
 }
 
 for file in *
