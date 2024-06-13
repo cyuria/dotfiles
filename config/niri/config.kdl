@@ -48,6 +48,7 @@ layout {
 }
 
 spawn-at-startup "xwayland-satellite" ":1"
+spawn-at-startup "dbus-update-activation-environment DISPLAY"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "/usr/lib/xdg-desktop-portal"
 
@@ -86,12 +87,12 @@ window-rule {
     draw-border-with-background false
     geometry-corner-radius 20
     clip-to-geometry true
-    opacity 0.9
+    opacity 0.95
 }
 
 window-rule {
     match is-active=false
-    opacity 0.7
+    opacity 0.8
 }
 
 // Work around WezTerm's initial configure bug
