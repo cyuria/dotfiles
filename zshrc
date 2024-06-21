@@ -1,6 +1,8 @@
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR='nvim'
 export GPG_TTY=$(tty)
+export MANPAGER='nvim +Man!'
+export MANWIDTH=999
 
 ZSH_THEME="nicoulaj"
 HYPHEN_INSENSITIVE="true"
