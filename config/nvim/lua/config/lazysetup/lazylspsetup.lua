@@ -4,7 +4,7 @@ return {
         "L3MON4D3/LuaSnip",
         version = "v2.*",
         event = "VeryLazy",
-        build = "gmake install_jsregexp",
+        build = require 'dependencies'.gmake .. " install_jsregexp",
         config = function()
             require 'luasnip.loaders.from_vscode'.lazy_load()
         end,
