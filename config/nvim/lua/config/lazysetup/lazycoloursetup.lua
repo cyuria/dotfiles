@@ -115,7 +115,6 @@ return {
                     fg = '#8c94aa',
                 }
 
-                -- tabby
                 hl.TabLineSel = {
                     fg = c.fg_dark,
                     bg = nil,

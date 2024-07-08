@@ -14,9 +14,4 @@ return {
             "tokyonight.nvim",
         },
     },
-    -- tabby.nvim
-    {
-        "nanozuki/tabby.nvim",
-        lazy = false,
-    },
 }

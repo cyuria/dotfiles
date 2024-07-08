@@ -12,7 +12,6 @@ require 'config.autocommands'.load()
 require 'config.coloursetup'
 if require 'dependencies'.enable_plugins then
     require 'config.felinesetup'
-    require 'config.tabbysetup'
 end
 
 -- Set colorscheme

@@ -12,7 +12,6 @@ vim.keymap.set('n', '<leader>lm', require'config.coloursetup'.light)
 require'config.remap.functionmappings'
 
 if require 'dependencies'.enable_plugins then
-    require 'config.remap.beaconmappings'
     require 'config.remap.persistencemappings'
     require 'config.remap.troublemappings'
 end

@@ -71,7 +71,8 @@ return {
     -- beacon.nvim
     {
         "danilamihailov/beacon.nvim",
-        cmd = "Beacon",
+        event = "VeryLazy",
+        config = true,
     },
     -- nvim-colorizer.lua
     {

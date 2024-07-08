@@ -3,7 +3,6 @@
 -- of the shell
 local function createShell(cmd)
     local JID = vim.fn.termopen(vim.g.terminal)
-    require'tabby'.update()
     if cmd then
         vim.fn.chansend(JID, cmd)
         vim.fn.chansend(JID, '\r')
