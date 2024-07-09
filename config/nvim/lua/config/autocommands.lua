@@ -78,14 +78,6 @@ local function load()
         group = augroup,
         command = "norm zx"
     });
-    vim.api.nvim_create_autocmd({ "ColorScheme" }, {
-        group = augroup,
-        callback = function()
-            if vim.o.background == 'dark' then
-                require 'config.coloursetup'.make_transparent()
-            end
-        end
-    })
     vim.api.nvim_create_autocmd({ "FileType" }, {
         group = augroup,
         callback = LoadFiletypeOpts,

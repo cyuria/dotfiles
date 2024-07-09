@@ -2,6 +2,7 @@
 local doubleschemes = {
     "edge",
     "gruvbox",
+    "everforest",
     "kanagawa",
     "lunaperche",
     "melange",
@@ -15,7 +16,7 @@ local doubleschemes = {
 vim.g.darkscheme = "slate"
 vim.g.lightscheme = "shine"
 if require 'dependencies'.enable_plugins then
-    vim.g.darkscheme = "gruvbox-baby"
+    vim.g.darkscheme = "everforest"
     vim.g.lightscheme = "dayfox"
 
     vim.g.gruvbox_contrast_dark = 'soft'
@@ -60,7 +61,7 @@ local function random_scheme()
     local scheme = schemes[math.random(#schemes)]
     vim.cmd('colorscheme ' .. scheme)
 end
-vim.api.nvim_create_user_command('Transparent', dark, {})
+vim.api.nvim_create_user_command('Transparent', make_transparent, {})
 vim.api.nvim_create_user_command('Dark', dark, {})
 vim.api.nvim_create_user_command('Light', light, {})
 vim.api.nvim_create_user_command('RandomColours', random_scheme, {})

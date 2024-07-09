@@ -166,4 +166,56 @@ return {
         "joshdick/onedark.vim",
         lazy = false,
     },
+    -- catppuccin
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        lazy = false,
+        config = {
+            integrations = {
+                alpha = true,
+                beacon = true,
+                cmp = true,
+                gitsigns = true,
+                notify = true,
+                markdown = true,
+                mason = true,
+                noice = true,
+                octo = require'dependencies'.github,
+                treesitter = true,
+                which_key = true,
+            }
+        },
+    },
+    -- angr
+    {
+        "zacanger/angr.vim",
+        lazy = false,
+    },
+    -- nordic
+    {
+        "AlexvZyl/nordic.nvim",
+        lazy = false,
+    },
+    -- flexoki
+    {
+        "kepano/flexoki-neovim",
+        name = "flexoki",
+        lazy = false,
+    },
+    -- material
+    {
+        "marko-cerovac/material.nvim",
+        lazy = false,
+    },
+    -- everforest
+    {
+        "sainnhe/everforest",
+        lazy = false,
+        config = function()
+            vim.g.everforest_enable_italic = true
+            vim.g.everforest_transparent_background = true
+            vim.g.everforest_background = 'hard'
+        end,
+    },
 }
