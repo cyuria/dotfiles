@@ -200,7 +200,6 @@ return {
     -- flexoki
     {
         "kepano/flexoki-neovim",
-        name = "flexoki",
         lazy = false,
     },
     -- material
@@ -217,5 +216,15 @@ return {
             vim.g.everforest_transparent_background = true
             vim.g.everforest_background = 'hard'
         end,
+    },
+    -- gruvbox-material
+    {
+        "sainnhe/gruvbox-material",
+        lazy = false,
+    },
+    -- jellybeans
+    {
+        "nanotech/jellybeans.vim",
+        lazy = false,
     },
 }

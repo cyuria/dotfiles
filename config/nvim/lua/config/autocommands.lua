@@ -40,6 +40,7 @@ local formatonchange = {
     javascript = true,
     meson = true,
     rust = true,
+    zig = true,
 }
 
 local filetypes = {
@@ -78,6 +79,14 @@ local function load()
         group = augroup,
         command = "norm zx"
     });
+    vim.api.nvim_create_autocmd({ "colorscheme" }, {
+        group = augroup,
+        callback = function ()
+            if vim.o.background == 'dark' then
+                require "config.coloursetup".transparent_folds()
+            end
+        end,
+    })
     vim.api.nvim_create_autocmd({ "FileType" }, {
         group = augroup,
         callback = LoadFiletypeOpts,

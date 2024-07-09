@@ -31,6 +31,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldminlines = 1
+vim.opt.foldlevelstart = 3
 
 -- Disable perl provider so :checkhealth stops complaining
 vim.g.loaded_perl_provider = 0

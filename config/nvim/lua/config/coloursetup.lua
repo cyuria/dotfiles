@@ -25,8 +25,13 @@ if require 'dependencies'.enable_plugins then
 end
 
 -- Setup light and dark mode functions and mappings
+local function transparent_bg(groups)
+    for _, g in ipairs(groups) do
+        vim.cmd('highlight ' .. g .. ' guibg=none')
+    end
+end
 local function make_transparent()
-    local groups = {
+    transparent_bg {
         "Normal",
         "NormalNC",
         "NormalFloat",
@@ -36,9 +41,11 @@ local function make_transparent()
         "BufferCurrent",
         "ZenBg",
     }
-    for _, g in ipairs(groups) do
-        vim.cmd('highlight ' .. g .. ' guibg=none')
-    end
+end
+local function transparent_folds()
+    transparent_bg {
+        "Folded",
+    }
 end
 local function dark()
     local double = vim.tbl_contains(doubleschemes, vim.g.colors_name)
@@ -62,12 +69,15 @@ local function random_scheme()
     vim.cmd('colorscheme ' .. scheme)
 end
 vim.api.nvim_create_user_command('Transparent', make_transparent, {})
+vim.api.nvim_create_user_command('TransparentFolds', transparent_folds, {})
 vim.api.nvim_create_user_command('Dark', dark, {})
 vim.api.nvim_create_user_command('Light', light, {})
 vim.api.nvim_create_user_command('RandomColours', random_scheme, {})
 
 return {
-    make_transparent = make_transparent,
     dark = dark,
     light = light,
+    make_transparent = make_transparent,
+    transparent_folds = transparent_folds,
+    random_scheme = random_scheme,
 }
