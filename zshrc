@@ -21,6 +21,9 @@ compinit
 alias cdg='cd $(git rev-parse --show-toplevel)'
 alias zg='zig build'
 
-eval "$(thefuck --alias)"
-eval "$(thefuck --alias FUCK)"
+# thefuck has really slow load times so cache the output
+if [[ -f "$HOME/.scripts/fuck.sh" ]]; then
+    source $HOME/.scripts/fuck.sh
+fi
+
 eval "$(zoxide init zsh --cmd cd)"

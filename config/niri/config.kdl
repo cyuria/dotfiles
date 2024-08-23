@@ -17,8 +17,7 @@ input {
         accel-profile "flat"
     }
 
-    warp-mouse-to-focus
-    focus-follows-mouse
+    focus-follows-mouse max-scroll-amount="65%"
 }
 
 output "eDP-1" {
@@ -28,7 +27,14 @@ output "eDP-1" {
 layout {
     gaps 16
 
-    center-focused-column "on-overflow"
+    //center-focused-column "on-overflow"
+
+    struts {
+        left 150
+        right 150
+        top 40
+        bottom 40
+    }
 
     preset-column-widths {
         proportion 0.35
@@ -47,18 +53,23 @@ layout {
     }
 }
 
-spawn-at-startup "xwayland-satellite" ":1"
-spawn-at-startup "dbus-update-activation-environment DISPLAY"
-spawn-at-startup "swww-daemon"
-spawn-at-startup "/usr/lib/xdg-desktop-portal"
-
-spawn-at-startup "alacritty"
-spawn-at-startup "vesktop"
-
 environment {
     QT_QPA_PLATFORM "wayland"
-    DISPLAY ":1"
+    DISPLAY ":6"
+    SWWW_TRANSITION "outer"
+    SWWW_TRANSITION_POS "0.854,0.977"
+    SWWW_TRANSITION_STEP "30"
 }
+
+spawn-at-startup "swww-daemon"
+spawn-at-startup "wlsunset" "-l" "33.9" "-L" "151.2" "-g" "0.9"
+spawn-at-startup "/usr/libexec/xdg-desktop-portal"
+spawn-at-startup "/usr/libexec/xdg-desktop-portal-gnome"
+
+spawn-at-startup "xwayland-satellite" ":6"
+spawn-at-startup "dbus-update-activation-environment" "DISPLAY"
+
+spawn-at-startup "alacritty"
 
 prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
@@ -151,8 +162,8 @@ binds {
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.03+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.03-"; }
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
@@ -295,7 +306,7 @@ binds {
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
 
     // Switches focus between the current and the previous workspace.
-    // Mod+Tab { focus-workspace-previous; }
+    Mod+Tab { focus-workspace-previous; }
 
     Mod+Comma  { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }

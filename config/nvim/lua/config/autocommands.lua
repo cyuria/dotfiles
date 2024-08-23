@@ -36,7 +36,6 @@ local ftypeopts = {
 local formatonchange = {
     c = true,
     cpp = true,
-    python = true,
     javascript = true,
     meson = true,
     rust = true,
