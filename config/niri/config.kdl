@@ -20,14 +20,8 @@ input {
     focus-follows-mouse max-scroll-amount="65%"
 }
 
-output "eDP-1" {
-    variable-refresh-rate
-}
-
 layout {
     gaps 16
-
-    //center-focused-column "on-overflow"
 
     struts {
         left 150
@@ -62,37 +56,27 @@ environment {
 }
 
 spawn-at-startup "swww-daemon"
+spawn-at-startup "swayidle -w"
 spawn-at-startup "wlsunset" "-l" "33.9" "-L" "151.2" "-g" "0.9"
 spawn-at-startup "/usr/libexec/xdg-desktop-portal"
+spawn-at-startup "/usr/libexec/xdg-desktop-portal-gtk"
 spawn-at-startup "/usr/libexec/xdg-desktop-portal-gnome"
 
 spawn-at-startup "xwayland-satellite" ":6"
 spawn-at-startup "dbus-update-activation-environment" "DISPLAY"
 
-spawn-at-startup "alacritty"
-
 prefer-no-csd
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
 
-// Animation settings.
-// The wiki explains how to configure individual animations:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
 animations {
-    // Uncomment to turn off all animations.
-    // off
-
     // Slow down all animations by this factor. Values below 1 speed them up instead.
-    slowdown 0.6
+    slowdown 0.75
 
     workspace-switch {
         spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
     }
 
 }
-
-// Window rules let you adjust behavior for individual windows.
-// Find more information on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 
 window-rule {
     draw-border-with-background false
@@ -109,10 +93,8 @@ window-rule {
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
 window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    match app-id="wezterm"
+    match app-id="steam"
     default-column-width {}
 }
 
@@ -128,6 +110,11 @@ window-rule {
     // block-out-from "screencast"
 }
 
+window-rule {
+    match app-id="foot"
+    default-column-width { fixed 800; }
+}
+
 hotkey-overlay {
     skip-at-startup
 }
@@ -138,30 +125,15 @@ cursor {
 }
 
 binds {
-    // Keys consist of modifiers separated by + signs, followed by an XKB key name
-    // in the end. To find an XKB name for a particular key, you may use a program
-    // like wev.
-    //
-    // "Mod" is a special modifier equal to Super when running on a TTY, and to Alt
-    // when running as a winit window.
-    //
-    // Most actions that you can bind here can also be invoked programmatically with
-    // `niri msg action do-something`.
-
     // Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T { spawn "alacritty"; }
+    Mod+T { spawn "foot"; }
     Mod+Space { spawn "fuzzel"; }
     Super+Alt+L { spawn "swaylock"; }
 
-    // You can also use a shell:
-    // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
-
-    // Example volume keys mappings for PipeWire & WirePlumber.
-    // The allow-when-locked=true property makes them work even when the session is locked.
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.03+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.03-"; }
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
