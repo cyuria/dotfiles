@@ -66,7 +66,7 @@ spawn-at-startup "xwayland-satellite" ":6"
 spawn-at-startup "dbus-update-activation-environment" "DISPLAY"
 
 prefer-no-csd
-screenshot-path "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
+screenshot-path "~/screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
 
 animations {
     // Slow down all animations by this factor. Values below 1 speed them up instead.
