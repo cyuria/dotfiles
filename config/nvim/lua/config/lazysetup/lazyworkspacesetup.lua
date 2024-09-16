@@ -10,14 +10,14 @@ return {
             "nvim-telescope/telescope-live-grep-args.nvim",
             "todo-comments.nvim",
             "nvim-notify",
-            "noice.nvim",
+            --"noice.nvim",
             "telescope-fzf-native.nvim",
         },
         config = function()
             require 'telescope'.load_extension 'live_grep_args'
             require 'telescope'.load_extension 'todo-comments'
             require 'telescope'.load_extension 'notify'
-            require 'telescope'.load_extension 'noice'
+            --require 'telescope'.load_extension 'noice'
             require 'telescope'.load_extension 'fzf'
             require 'config.remap.telescopemappings'
         end,
@@ -144,6 +144,7 @@ return {
     {
         "folke/noice.nvim",
         lazy = false,
+        enabled = false,
         opts = {
             lsp = {
                 override = {
@@ -213,5 +214,5 @@ return {
         init = function()
             vim.g.vimtex_view_method = "zathura"
         end
-    }
+    },
 }
