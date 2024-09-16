@@ -11,6 +11,11 @@ local ftypeopts = {
         shiftwidth = 8,
         expandtab = false,
     },
+    asm = {
+        tabstop = 8,
+        shiftwidth = 8,
+        expandtab = false,
+    },
     help = {
         expandtab = false,
         modeline = true,
