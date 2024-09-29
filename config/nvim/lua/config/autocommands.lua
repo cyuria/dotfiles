@@ -36,6 +36,10 @@ local ftypeopts = {
         tabstop = 2,
         shiftwidth = 2,
     },
+    javascript = {
+        tabstop = 2,
+        shiftwidth = 2,
+    },
 }
 
 local formatonchange = {
