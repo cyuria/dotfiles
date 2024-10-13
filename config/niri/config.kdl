@@ -18,6 +18,7 @@ input {
     }
 
     focus-follows-mouse max-scroll-amount="65%"
+    disable-power-key-handling
 }
 
 layout {
