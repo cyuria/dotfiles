@@ -5,6 +5,8 @@ input {
             // xkeyboard-config(7)
             options "ctrl:nocaps"
         }
+        repeat-delay 200
+        repeat-rate 40
     }
 
     touchpad {
