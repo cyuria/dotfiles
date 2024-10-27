@@ -71,9 +71,6 @@ end
 local function LoadFiletypeOpts(opts)
     local bufferopts = ftypeopts[vim.bo[opts.buf].filetype] or {}
     LoadOpts(vim.tbl_extend('keep', bufferopts, ftypeopts.defaults), opts.buf)
-    if (vim.bo[opts.buf].filetype == "zig") then
-        vim.cmd("silent set foldmethod=indent")
-    end
 end
 
 local function load()
@@ -90,10 +87,10 @@ local function load()
         group = augroup,
         callback = require 'config.functions'.reloadCtags,
     });
-    vim.api.nvim_create_autocmd({ "BufWritePost", "FileWritePost" }, {
-        group = augroup,
-        command = "norm zx"
-    });
+    --vim.api.nvim_create_autocmd({ "BufWritePost", "FileWritePost" }, {
+    --    group = augroup,
+    --    command = "norm zx"
+    --});
     vim.api.nvim_create_autocmd({ "colorscheme" }, {
         group = augroup,
         callback = function ()

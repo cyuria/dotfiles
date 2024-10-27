@@ -36,6 +36,9 @@ vim.opt.foldlevelstart = 3
 -- Disable perl provider so :checkhealth stops complaining
 vim.g.loaded_perl_provider = 0
 
+-- I have absolutely no clue why this is default
+vim.g.zig_fmt_autosave = 0
+
 -- Interpret .h files as c
 vim.g.c_syntax_for_h = 1
 
