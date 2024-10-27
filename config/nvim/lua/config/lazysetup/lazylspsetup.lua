@@ -42,6 +42,18 @@ return {
             "jose-elias-alvarez/typescript.nvim",
         },
     },
+    -- nvim-lspconfig
+    {
+        "neovim/nvim-lspconfig",
+        config = function ()
+            local lspconfig = require 'lspconfig'
+            local cfg = require 'config.lspsetup'
+
+            for _, lsp in ipairs(cfg.system) do
+                lspconfig[lsp].setup(cfg.get(lsp))
+            end
+        end
+    },
     -- nvim-cmp
     {
         "hrsh7th/nvim-cmp",

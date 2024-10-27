@@ -65,7 +65,17 @@ local customconfig = {
                 activateSnykCode = true
             }
         }
-    }
+    },
+    zls = {
+        settings = {
+
+        }
+    },
+}
+
+local system_lsp = {
+    "clangd",
+    "zls",
 }
 
 local function get(lsp)
@@ -77,5 +87,6 @@ return {
     get = get,
     default = default,
     config = customconfig,
+    system = system_lsp,
 }
 
