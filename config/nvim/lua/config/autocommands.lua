@@ -71,6 +71,9 @@ end
 local function LoadFiletypeOpts(opts)
     local bufferopts = ftypeopts[vim.bo[opts.buf].filetype] or {}
     LoadOpts(vim.tbl_extend('keep', bufferopts, ftypeopts.defaults), opts.buf)
+    if (vim.bo[opts.buf].filetype == "zig") then
+        vim.cmd("silent set foldmethod=indent")
+    end
 end
 
 local function load()
