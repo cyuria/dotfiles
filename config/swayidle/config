@@ -1,4 +1,0 @@
-lock 'niri msg action do-screen-transition && swaylock -f'
-before-sleep 'niri msg action do-screen-transition && swaylock -f'
-timeout 120 'niri msg action do-screen-transition && swaylock -f'
-timeout 150 'niri msg power-off-monitors'
