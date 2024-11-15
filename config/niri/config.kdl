@@ -58,6 +58,9 @@ environment {
     SWWW_TRANSITION_STEP "30"
 }
 
+spawn-at-startup "xwayland-satellite" ":6"
+spawn-at-startup "dbus-update-activation-environment" "DISPLAY"
+
 spawn-at-startup "swww-daemon"
 spawn-at-startup "swayidle -w"
 spawn-at-startup "wlsunset" "-l" "33.9" "-L" "151.2" "-g" "0.9"
@@ -65,9 +68,6 @@ spawn-at-startup "activate-linux"
 spawn-at-startup "/usr/libexec/xdg-desktop-portal"
 spawn-at-startup "/usr/libexec/xdg-desktop-portal-gtk"
 spawn-at-startup "/usr/libexec/xdg-desktop-portal-gnome"
-
-spawn-at-startup "xwayland-satellite" ":6"
-spawn-at-startup "dbus-update-activation-environment" "DISPLAY"
 
 prefer-no-csd
 screenshot-path "~/screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
