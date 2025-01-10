@@ -59,6 +59,7 @@ local filetypes = {
     gltf = "json",
     frag = "glsl",
     vert = "glsl",
+    mesh = "glsl",
     ino = "cpp",
 }
 
