@@ -10,13 +10,14 @@ local doubleschemes = {
     "retrobox",
     "tokyonight",
     "wildcharm",
+    "zenbones",
 }
 
 -- Set default light and dark schemes and configure colorscheme dependent options
 vim.g.darkscheme = "slate"
 vim.g.lightscheme = "shine"
 if require 'dependencies'.enable_plugins then
-    vim.g.darkscheme = "everforest"
+    vim.g.darkscheme = "evergarden"
     vim.g.lightscheme = "dayfox"
 
     vim.g.gruvbox_contrast_dark = 'soft'

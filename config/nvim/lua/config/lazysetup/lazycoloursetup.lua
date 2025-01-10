@@ -171,7 +171,7 @@ return {
         "catppuccin/nvim",
         name = "catppuccin",
         lazy = false,
-        config = {
+        opts = {
             integrations = {
                 alpha = true,
                 beacon = true,
@@ -226,5 +226,25 @@ return {
     {
         "nanotech/jellybeans.vim",
         lazy = false,
+    },
+    -- zenburn
+    {
+        "phha/zenburn.nvim",
+        lazy = false,
+        opts = {},
+    },
+    -- zenbones
+    {
+        "zenbones-theme/zenbones.nvim",
+        dependencies = "rktjmp/lush.nvim",
+        lazy = false,
+    },
+    -- evergarden
+    {
+        "comfysage/evergarden",
+        lazy = false,
+        opts = {
+            variant = 'hard',
+        },
     },
 }
