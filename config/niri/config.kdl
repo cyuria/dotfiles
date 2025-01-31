@@ -29,8 +29,8 @@ layout {
     struts {
         left 100
         right 100
-        top 30
-        bottom 10
+        top 10
+        bottom 5
     }
 
     preset-column-widths {
