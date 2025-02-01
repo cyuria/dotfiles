@@ -1,7 +1,7 @@
 -- Setup manual git loading for lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 -- If lazy doesn't exist in the filesystem, then git clone it
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
     vim.fn.system({
         "git", "clone",
         "--filter=blob:none",
@@ -49,7 +49,7 @@ local lazyopts = {
         fallback = true,
     },
     install = {
-        missing = false,
+        missing = true,
         colorscheme = {
             "elly",
             "kanagawa-dragon",

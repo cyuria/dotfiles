@@ -7,13 +7,12 @@ local customconfig = {
     lua_ls = {
         settings = {
             Lua = {
-                runtime = {
-                    version = "LuaJIT",
-                },
                 workspace = {
                     -- Make the server aware of Neovim runtime files
-                    library = vim.api.nvim_get_runtime_file("", true),
-                    checkThirdParty = false,
+                    library = vim.list_extend(
+                        vim.api.nvim_get_runtime_file("", true),
+                        { "${3rd}/luv/library" }
+                    ),
                 },
             },
         },
