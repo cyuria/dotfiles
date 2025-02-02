@@ -35,10 +35,10 @@ return {
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
             "neovim/nvim-lspconfig",
-            "cmp-nvim-lsp",
+            "blink.cmp",
 
             "p00f/clangd_extensions.nvim",
-            "simrat39/rust-tools.nvim",
+            "mrcjkb/rustaceanvim",
             "jose-elias-alvarez/typescript.nvim",
         },
     },
@@ -54,44 +54,46 @@ return {
             end
         end
     },
-    -- nvim-cmp
+    -- blink.cmp
     {
-        "hrsh7th/nvim-cmp",
-        event = "InsertEnter",
-        opts = function()
-            local cmp = require 'cmp'
-            return {
-                snippet = {
-                    expand = function(args)
-                        require 'luasnip'.lsp_expand(args.body)
-                    end,
-                },
-                mapping = {
-                    ['<CR>'] = require 'cmp'.mapping.confirm({ select = true })
-                },
-                sources = cmp.config.sources({
-                    { name = "nvim_lsp" },
-                    { name = "luasnip" },
-                }, {
-                    { name = "buffer" },
-                }),
-                window = {
-                    completion = cmp.config.window.bordered(),
-                    documentation = cmp.config.window.bordered()
-                },
-                formatting = {
-                    format = require 'lspkind'.cmp_format {}
-                },
-            }
-        end,
+        "saghen/blink.cmp",
+        event = { "InsertEnter", "VeryLazy" },
         dependencies = {
-            "saadparwaiz1/cmp_luasnip",
-            "onsails/lspkind.nvim",
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-cmdline",
+            "LuaSnip",
+            "rafamadriz/friendly-snippets",
         },
+        version = '*',
+        ---@module 'blink.cmp'
+        ---@type blink.cmp.Config
+        opts = {
+            keymap = {
+                preset = 'default',
+                ['<C-enter>'] = { 'select_and_accept' },
+            },
+            completion = {
+                accept = { auto_brackets = { enabled = true } },
+                documentation = { auto_show = true },
+                ghost_text = { enabled = true },
+            },
+            appearance = {
+                use_nvim_cmp_as_default = true,
+                nerd_font_variant = 'mono',
+            },
+            sources = {
+                default = { 'lsp', 'path', 'snippets', 'buffer' },
+            },
+            fuzzy = {
+                prebuilt_binaries = {
+                    download = true,
+                    force_system_triple = "x86_64-unknown-linux-musl"
+                },
+            },
+            snippets = {
+                preset = 'luasnip',
+            },
+            signature = { enabled = true },
+        },
+        opts_extend = { "sources.default" },
     },
     -- nvim-treesitter
     {
