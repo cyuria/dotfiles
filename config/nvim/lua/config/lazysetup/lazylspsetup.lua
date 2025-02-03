@@ -46,11 +46,19 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function ()
-            local lspconfig = require 'lspconfig'
-            local cfg = require 'config.lspsetup'
+            local lspconfig = require('lspconfig')
+            local configs = require('lspconfig.configs')
+            local cfg = require('config.lspsetup')
 
             for _, lsp in ipairs(cfg.system) do
                 lspconfig[lsp].setup(cfg.get(lsp))
+            end
+
+            for lsp, custom in pairs(cfg.custom) do
+                if not configs[lsp] then
+                    configs[lsp] = custom
+                    configs[lsp].setup{cfg.get(lsp)}
+                end
             end
         end
     },

@@ -123,6 +123,15 @@ return {
         "cyuria/build.nvim",
         dev = true,
         event = "VeryLazy",
-        opts = {},
+        opts = {
+            extra_programs = {
+                make = function (root, _)
+                    if not root then
+                        return "unbuffer make $*"
+                    end
+                    return "unbuffer make $* -C " .. root
+                end,
+            },
+        },
     }
 }

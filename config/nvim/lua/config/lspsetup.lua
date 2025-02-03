@@ -77,6 +77,19 @@ local system_lsp = {
     "zls",
 }
 
+local custom_servers = {
+    ["glsl-lsp"] = {
+        default_config = {
+            cmd = { 'glsl-lsp' },
+            filetypes = { 'glsl' },
+            root_dir = function(fname)
+                return vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
+            end,
+            settings = {},
+        }
+    },
+}
+
 local function get(lsp)
     local config = customconfig[lsp] or {}
     return vim.tbl_deep_extend("keep", config, default)
@@ -87,5 +100,6 @@ return {
     default = default,
     config = customconfig,
     system = system_lsp,
+    custom = custom_servers,
 }
 
