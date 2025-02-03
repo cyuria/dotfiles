@@ -71,36 +71,54 @@ return {
             "rafamadriz/friendly-snippets",
         },
         version = '*',
-        ---@module 'blink.cmp'
-        ---@type blink.cmp.Config
-        opts = {
-            keymap = {
-                preset = 'default',
-                ['<C-enter>'] = { 'select_and_accept' },
-            },
-            completion = {
-                accept = { auto_brackets = { enabled = true } },
-                documentation = { auto_show = true },
-                ghost_text = { enabled = true },
-            },
-            appearance = {
-                use_nvim_cmp_as_default = true,
-                nerd_font_variant = 'mono',
-            },
-            sources = {
-                default = { 'lsp', 'path', 'snippets', 'buffer' },
-            },
-            fuzzy = {
-                prebuilt_binaries = {
-                    download = true,
-                    force_system_triple = "x86_64-unknown-linux-musl"
+        opts = function()
+            local function getSystemTriple()
+                local system_triple_cmd = vim.system({'cc', '-dumpmachine'}, { text = true }):wait()
+                if system_triple_cmd.code ~= 0 then
+                    print("something somewhere went terribly wrong")
+                    return nil
+                end
+
+                -- strip whitespace
+                local stdout = system_triple_cmd.stdout:gsub('%s+', '')
+                -- split into parts for further processing
+                local triple = vim.fn.split(stdout, '-')
+                if triple[3] == "linux" then
+                    triple[2] = "unknown"
+                end
+                return vim.fn.join(triple, '-')
+            end
+
+            ---@type blink.cmp.Config
+            return {
+                keymap = {
+                    preset = 'default',
+                    ['<C-enter>'] = { 'select_and_accept' },
                 },
-            },
-            snippets = {
-                preset = 'luasnip',
-            },
-            signature = { enabled = true },
-        },
+                completion = {
+                    accept = { auto_brackets = { enabled = true } },
+                    documentation = { auto_show = true },
+                    ghost_text = { enabled = true },
+                },
+                appearance = {
+                    use_nvim_cmp_as_default = true,
+                    nerd_font_variant = 'mono',
+                },
+                sources = {
+                    default = { 'lsp', 'path', 'snippets', 'buffer' },
+                },
+                fuzzy = {
+                    prebuilt_binaries = {
+                        download = true,
+                        force_system_triple = getSystemTriple(),
+                    },
+                },
+                snippets = {
+                    preset = 'luasnip',
+                },
+                signature = { enabled = true },
+            }
+        end,
         opts_extend = { "sources.default" },
     },
     -- nvim-treesitter
