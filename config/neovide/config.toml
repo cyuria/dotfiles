@@ -1,0 +1,5 @@
+fork = true
+
+[font]
+normal = ["Maple Mono"]
+size = 12.0
