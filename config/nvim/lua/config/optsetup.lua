@@ -33,6 +33,9 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldminlines = 1
 vim.opt.foldlevelstart = 3
 
+-- Neovide stuff
+vim.g.neovide_hide_mouse_when_typing = true
+
 -- Disable perl provider so :checkhealth stops complaining
 vim.g.loaded_perl_provider = 0
 
