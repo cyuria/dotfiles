@@ -2,7 +2,7 @@
 vim.g.mapleader = ' '
 
 -- Formatting stuff for line numbers, new split windows and searching
-vim.opt.relativenumber = true
+--vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.splitright = true
 vim.opt.ignorecase = true
