@@ -1,7 +1,7 @@
 return {
     -- feline.nvim
     {
-        "freddiehaddad/feline.nvim",
+        "famiu/feline.nvim",
         lazy = false,
         opts = function() return require'config.felinesetup' end,
         config = function(_, opts)
