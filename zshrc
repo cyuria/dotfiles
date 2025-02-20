@@ -11,7 +11,7 @@ DISABLE_AUTO_TITLE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="dd.mm.yyyy"
 
-plugins=( git zsh-vi-mode )
+plugins=( git zsh-vi-mode zsh-syntax-highlighting )
 
 fpath=( $HOME/.zsh_completions $fpath )
 
