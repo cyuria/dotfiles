@@ -11,11 +11,11 @@ DISABLE_AUTO_TITLE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="dd.mm.yyyy"
 
-plugins=( git zsh-vi-mode zsh-syntax-highlighting )
+plugins=( git zsh-vi-mode fast-syntax-highlighting )
 
 fpath=( $HOME/.zsh_completions $fpath )
 
-zstyle ':omz:update' mode reminder  # remind me to update when available
+zstyle ':omz:update' mode reminder
 source $ZSH/oh-my-zsh.sh
 compinit
 
