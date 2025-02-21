@@ -70,7 +70,7 @@ spawn-at-startup "/usr/libexec/xdg-desktop-portal-gtk"
 spawn-at-startup "/usr/libexec/xdg-desktop-portal-gnome"
 
 prefer-no-csd
-screenshot-path "~/screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
+screenshot-path "~/files/screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
 
 animations {
     // Slow down all animations by this factor. Values below 1 speed them up instead.
@@ -86,12 +86,12 @@ window-rule {
     draw-border-with-background false
     geometry-corner-radius 20
     clip-to-geometry true
-    opacity 0.95
+    opacity 1.0 //0.95
 }
 
 window-rule {
     match is-active=false
-    opacity 0.8
+    opacity 0.9
 }
 
 // Work around WezTerm's initial configure bug
