@@ -13,6 +13,7 @@ input {
         tap
         natural-scroll
         accel-profile "flat"
+        scroll-factor 0.15
     }
 
     mouse {
@@ -86,7 +87,7 @@ window-rule {
     draw-border-with-background false
     geometry-corner-radius 20
     clip-to-geometry true
-    opacity 1.0 //0.95
+    opacity 1.0
 }
 
 window-rule {
