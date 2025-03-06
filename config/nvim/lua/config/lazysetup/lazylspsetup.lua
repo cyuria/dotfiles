@@ -40,7 +40,7 @@ return {
             "blink.cmp",
 
             "p00f/clangd_extensions.nvim",
-            "mrcjkb/rustaceanvim",
+            "rustaceanvim",
             "jose-elias-alvarez/typescript.nvim",
         },
     },
@@ -158,5 +158,10 @@ return {
 
             vim.treesitter.language.register("htmldjango", "html")
         end,
+    },
+    {
+        "mrcjkb/rustaceanvim",
+        version = '^5',
+        lazy = false,
     },
 }
