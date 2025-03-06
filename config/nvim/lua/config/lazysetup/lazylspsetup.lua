@@ -30,6 +30,8 @@ return {
                 function(lspname)
                     lspconfig[lspname].setup(cfg.get(lspname))
                 end,
+                -- don't use rust-analyser because of rustaceanvim
+                ["rust_analyzer"] = function(_) end
             }
         end,
         dependencies = {
