@@ -215,4 +215,9 @@ return {
             vim.g.vimtex_view_method = "zathura"
         end
     },
+    -- vim-gutentags
+    {
+        "linrongbin16/gentags.nvim",
+        opts = {},
+    },
 }
