@@ -1,12 +1,16 @@
 -- Seat leader key to spacebar
 vim.g.mapleader = ' '
 
+vim.o.expandtab = true
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+
 -- Formatting stuff for line numbers, new split windows and searching
 --vim.opt.relativenumber = true
-vim.opt.number = true
-vim.opt.splitright = true
 vim.opt.ignorecase = true
+vim.opt.number = true
 vim.opt.smartcase = true
+vim.opt.splitright = true
 vim.opt.termguicolors = true
 vim.opt.timeoutlen = 150
 
@@ -28,10 +32,10 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- Treesitter based folding
-vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldminlines = 1
 vim.opt.foldlevelstart = 3
+vim.opt.foldmethod = "expr"
+vim.opt.foldminlines = 1
 
 -- Neovide stuff
 vim.g.neovide_hide_mouse_when_typing = true
@@ -48,6 +52,35 @@ vim.g.c_syntax_for_h = 1
 -- Remove extra menu items from mouse right click menu
 vim.cmd('aunmenu PopUp.How-to\\ disable\\ mouse')
 vim.cmd('aunmenu PopUp.-1-')
+
+vim.filetype.add({
+    extension = {
+        gltf = "json",
+        frag = "glsl",
+        vert = "glsl",
+        mesh = "glsl",
+        ino = "cpp",
+    }
+})
+
+local border = {
+    { '┌', 'FloatBorder' },
+    { '─', 'FloatBorder' },
+    { '┐', 'FloatBorder' },
+    { '│', 'FloatBorder' },
+    { '┘', 'FloatBorder' },
+    { '─', 'FloatBorder' },
+    { '└', 'FloatBorder' },
+    { '│', 'FloatBorder' },
+}
+
+-- Add border to the diagnostic popup window
+vim.diagnostic.config({
+    virtual_text = {
+        prefix = '● ', -- Could be '●', '▎', 'x', '■', , 
+    },
+    float = { border = border },
+})
 
 -- rustaceanvim takes options as arguments
 vim.g.rustaceanvim = {
@@ -67,3 +100,4 @@ vim.g.rustaceanvim = {
 
     },
 }
+

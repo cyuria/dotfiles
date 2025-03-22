@@ -76,22 +76,12 @@ end
 
 local function load()
     local augroup = vim.api.nvim_create_augroup("openBufOpts", {})
-    vim.api.nvim_create_autocmd({ "BufWritePre", "FileWritePre" }, {
-        group = augroup,
-        callback = function()
-            if formatonchange[vim.bo.filetype] then
-                vim.lsp.buf.format()
-            end
-        end
-    })
+    -- ctags
     vim.api.nvim_create_autocmd({ "BufWritePost", "FileWritePost" }, {
         group = augroup,
         callback = require 'config.functions'.reloadCtags,
     });
-    --vim.api.nvim_create_autocmd({ "BufWritePost", "FileWritePost" }, {
-    --    group = augroup,
-    --    command = "norm zx"
-    --});
+    -- colourschemes
     vim.api.nvim_create_autocmd({ "colorscheme" }, {
         group = augroup,
         callback = function ()
@@ -100,35 +90,28 @@ local function load()
             end
         end,
     })
-    vim.api.nvim_create_autocmd({ "FileType" }, {
-        group = augroup,
-        callback = LoadFiletypeOpts,
-    })
-    vim.api.nvim_create_autocmd({ "TermOpen" }, {
-        group = augroup,
-        callback = function()
-            vim.keymap.set(
-                't', '<c-e>',
-                vim.cmd.stopinsert,
-                { buffer = 0, }
-            )
-            vim.cmd.setlocal 'nornu nonumber'
-            vim.api.nvim_buf_set_name(0, string.match(
-                vim.api.nvim_buf_get_name(0),
-                '//[0-9]*:%S+'
-            ))
-            vim.cmd 'startinsert'
-        end,
-    });
-    vim.api.nvim_create_autocmd({ "TermClose" }, {
-        group = augroup,
-        command = 'bd!',
-    })
+    --? lsp format
     vim.api.nvim_create_autocmd({ "LspAttach" }, {
         group = augroup,
-        callback = function(args)
-            -- See :h vim.lsp.formatexpr()
-            vim.bo[args.buf].formatexpr = 'v:lua.vim.lsp.formatexpr(#{timeout_ms:250})'
+        callback = function ()
+            local border = {
+                { '┌', 'FloatBorder' },
+                { '─', 'FloatBorder' },
+                { '┐', 'FloatBorder' },
+                { '│', 'FloatBorder' },
+                { '┘', 'FloatBorder' },
+                { '─', 'FloatBorder' },
+                { '└', 'FloatBorder' },
+                { '│', 'FloatBorder' },
+            }
+
+            -- Add border to the diagnostic popup window
+            vim.diagnostic.config({
+                virtual_text = {
+                    prefix = '● ', -- Could be '●', '▎', 'x', '■', , 
+                },
+                float = { border = border },
+            })
         end,
     })
     if require 'dependencies'.enable_discord then
@@ -152,9 +135,6 @@ local function load()
             end,
         })
     end
-    vim.filetype.add({
-        extension = filetypes,
-    })
 end
 
 return {
