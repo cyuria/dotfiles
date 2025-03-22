@@ -121,7 +121,7 @@ local function load()
         })
         vim.api.nvim_create_autocmd({ "DirChanged" }, {
             group = augroup,
-            callback = function()
+            callback = function ()
                 local wsname = require 'nvimcord.workspace'.get_name()
                 require 'nvimcord.discord'.config.workspace_name = wsname
             end
@@ -130,7 +130,7 @@ local function load()
     if require 'dependencies'.enable_unmerged then
         vim.api.nvim_create_autocmd({ "FoldChanged" }, {
             group = augroup,
-            callback = function()
+            callback = function ()
                 vim.cmd("call matchup#matchparen#hightlight_surrounding()")
             end,
         })

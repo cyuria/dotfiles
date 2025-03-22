@@ -75,14 +75,14 @@ vim.keymap.set(
 vim.keymap.set(
     'n',
     '<leader>fD',
-    function() builtin.diagnostics({ bufnr = 0 }) end,
+    function () builtin.diagnostics({ bufnr = 0 }) end,
     { desc = "Telescope document diagnostics" }
 )
 -- Search the solar system
 vim.keymap.set(
     'n',
     '<leader>fu',
-    function() builtin.planets({ show_pluto = true, show_moon = true }) end,
+    function () builtin.planets({ show_pluto = true, show_moon = true }) end,
     { desc = "Telescope planets" }
 )
 -- Use the last picker

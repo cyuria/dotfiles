@@ -63,29 +63,10 @@ vim.filetype.add({
     }
 })
 
-local border = {
-    { '┌', 'FloatBorder' },
-    { '─', 'FloatBorder' },
-    { '┐', 'FloatBorder' },
-    { '│', 'FloatBorder' },
-    { '┘', 'FloatBorder' },
-    { '─', 'FloatBorder' },
-    { '└', 'FloatBorder' },
-    { '│', 'FloatBorder' },
-}
-
--- Add border to the diagnostic popup window
-vim.diagnostic.config({
-    virtual_text = {
-        prefix = '● ', -- Could be '●', '▎', 'x', '■', , 
-    },
-    float = { border = border },
-})
-
 -- rustaceanvim takes options as arguments
 vim.g.rustaceanvim = {
     server = {
-        cmd = function()
+        cmd = function ()
             local mason_registry = require('mason-registry')
             if mason_registry.is_installed('rust-analyzer') then
                 -- This may need to be tweaked depending on the operating system.

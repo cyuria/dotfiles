@@ -14,7 +14,7 @@ return {
             --"noice.nvim",
             "telescope-fzf-native.nvim",
         },
-        config = function()
+        config = function ()
             require 'telescope'.load_extension 'live_grep_args'
             require 'telescope'.load_extension 'todo-comments'
             require 'telescope'.load_extension 'notify'
@@ -34,7 +34,7 @@ return {
     {
         "tamago324/lir.nvim",
         event = "VeryLazy",
-        opts = function()
+        opts = function ()
             local actions = require 'lir.actions'
             local mark_actions = require 'lir.mark.actions'
             local clipboard_actions = require 'lir.clipboard.actions'
@@ -64,7 +64,7 @@ return {
                     ['.'] = actions.toggle_show_hidden,
                     ['D'] = actions.delete,
 
-                    ['J'] = function()
+                    ['J'] = function ()
                         mark_actions.toggle_mark 'v'
                         vim.cmd 'normal! j'
                     end,
@@ -76,7 +76,7 @@ return {
                 }
             }
         end,
-        config = function(_, opts)
+        config = function (_, opts)
             require 'lir'.setup(opts)
             require 'nvim-web-devicons'.set_icon {
                 lir_folder_icon = {
@@ -87,10 +87,10 @@ return {
             }
             vim.api.nvim_create_autocmd({ 'FileType' }, {
                 pattern = { "lir" },
-                callback = function()
+                callback = function ()
                     vim.keymap.set(
                         'x', 'J',
-                        function()
+                        function ()
                             require 'lir.mark.actions'.toggle_mark 'v'
                         end,
                         { buffer = true, noremap = true, silent = true, }
@@ -118,7 +118,7 @@ return {
         "tamago324/lir-git-status.nvim",
         event = "VeryLazy",
         opts = { show_ignored = true, },
-        config = function(_, opts)
+        config = function (_, opts)
             require 'lir.git_status'.setup(opts)
         end,
     },
@@ -216,7 +216,7 @@ return {
     {
         "lervag/vimtex",
         lazy = false,
-        init = function()
+        init = function ()
             vim.g.vimtex_view_method = "zathura"
         end
     },

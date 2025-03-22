@@ -99,7 +99,7 @@ local custom_servers = {
         default_config = {
             cmd = { 'glsl-lsp' },
             filetypes = { 'glsl' },
-            root_dir = function(fname)
+            root_dir = function (fname)
                 return vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
             end,
             settings = {},

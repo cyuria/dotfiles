@@ -6,7 +6,7 @@ return {
         version = "v2.*",
         event = "VeryLazy",
         build = require 'dependencies'.gmake .. " install_jsregexp",
-        config = function()
+        config = function ()
             require 'luasnip.loaders.from_vscode'.lazy_load()
         end,
         dependencies = {
@@ -20,7 +20,7 @@ return {
         event = { "BufReadPre", "BufNewFile" },
         cmd = "Mason",
         opts = {},
-        config = function()
+        config = function ()
             local lspconfig = require 'lspconfig'
             local cfg = require 'config.lspsetup'
 
@@ -28,11 +28,11 @@ return {
             require 'mason-lspconfig'.setup()
             require 'mason-lspconfig'.setup_handlers {
                 -- Default setup
-                function(lspname)
+                function (lspname)
                     lspconfig[lspname].setup(cfg.get(lspname))
                 end,
                 -- don't use rust-analyser because of rustaceanvim
-                ["rust_analyzer"] = function(_) end
+                ["rust_analyzer"] = function (_) end
             }
         end,
         dependencies = {
@@ -74,7 +74,7 @@ return {
             "rafamadriz/friendly-snippets",
         },
         version = '*',
-        opts = function()
+        opts = function ()
             local function getSystemTriple()
                 local system_triple_cmd = vim.system({'cc', '-dumpmachine'}, { text = true }):wait()
                 if system_triple_cmd.code ~= 0 then
@@ -149,7 +149,7 @@ return {
                 enable = true,
             }
         },
-        config = function(_, opts)
+        config = function (_, opts)
             -- Use clang, as other compilers break stuff
             require 'nvim-treesitter.install'.compilers = { "clang" }
             -- Use tar + curl instead of git

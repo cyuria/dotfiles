@@ -130,7 +130,7 @@ end
 local default_mru_ignore = { "gitcommit" }
 
 local mru_opts = {
-    ignore = function(path, ext)
+    ignore = function (path, ext)
         return (string.find(path, "COMMIT_EDITMSG")) or (vim.tbl_contains(default_mru_ignore, ext))
     end,
     autocd = false
@@ -192,7 +192,7 @@ local section = {
     top_buttons = {
         type = "group",
         val = {
-            { type = "button", val = "", on_press = function()end, opts = { noremap = true, silent = true, nowait = true } },
+            { type = "button", val = "", on_press = function () end, opts = { noremap = true, silent = true, nowait = true } },
             button("e", "New file", "<cmd>ene<cr>"),
             button("h", "Open home dir", "<cmd>e ~/<cr>"),
         },
@@ -212,7 +212,7 @@ local section = {
             { type = "padding", val = 1 },
             {
                 type = "group",
-                val = function()
+                val = function ()
                     return { mru(0, nil, 10) }
                 end
             },
@@ -265,7 +265,7 @@ local config = {
         shrink_margin = false,
         margin = 3,
         redraw_on_resize = false,
-        setup = function()
+        setup = function ()
             vim.api.nvim_create_autocmd('DirChanged', {
                 pattern = '*',
                 group = "alpha_temp",

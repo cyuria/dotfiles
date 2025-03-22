@@ -21,7 +21,7 @@ local c = {
                 show_mode_name = true,
             },
         },
-        hl = function()
+        hl = function ()
             return {
                 fg = require("feline.providers.vi_mode").get_mode_color(),
                 bg = "bg_highlight",
@@ -37,7 +37,7 @@ local c = {
                 padding = "center",
             },
         },
-        hl = function()
+        hl = function ()
             return {
                 fg = "fg",
                 bg = "bg_highlight",
@@ -47,11 +47,11 @@ local c = {
         end,
     },
     lazyStatus = {
-        provider = function()
+        provider = function ()
             local lazystatus = require'lazy.status'
             return lazystatus.updates() or ' 󰴋  '
         end,
-        hl = function()
+        hl = function ()
             return {
                 fg = require("feline.providers.vi_mode").get_mode_color(),
                 bg = "bg_highlight",
@@ -199,7 +199,7 @@ local c = {
 
 local function getSpace(colour)
     return {
-        provider = function() return ' ' end,
+        provider = function () return ' ' end,
         hl = { bg = colour, },
     }
 end
@@ -209,7 +209,7 @@ local function getSpacer(fg, bg, left)
         hl = { bg = bg, fg = fg, },
     }
     local spacer = {
-        provider = function() return ' ' end,
+        provider = function () return ' ' end,
         hl = { bg = fg, },
     }
     if left then

@@ -20,7 +20,7 @@ return {
             colors = { theme = { all = { ui = {
                 bg_gutter = nil
             }}}},
-            overrides = function(colors)
+            overrides = function (colors)
                 local ui = colors.theme.ui
                 return {
                     -- Telescope
@@ -75,13 +75,13 @@ return {
             light_style = "day",
             day_brightness = 0.6,
             dim_inactive = true,
-            on_colors = function(colours)
+            on_colors = function (colours)
                 colours.comment = "#738ca4"
                 colours.bg_sidebar = nil
                 colours.bg_float = nil
                 colours.bg_statusline = nil
             end,
-            on_highlights = function(hl, c)
+            on_highlights = function (hl, c)
                 hl.Folded = {
                     bg = nil,
                     fg = '#7b869c'
@@ -212,7 +212,7 @@ return {
     {
         "sainnhe/everforest",
         lazy = false,
-        config = function()
+        config = function ()
             vim.g.everforest_enable_italic = true
             vim.g.everforest_transparent_background = true
             vim.g.everforest_background = 'hard'
