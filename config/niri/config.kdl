@@ -11,6 +11,7 @@ input {
 
     touchpad {
         tap
+        dwt
         natural-scroll
         accel-profile "flat"
         scroll-factor 0.15
@@ -67,8 +68,6 @@ spawn-at-startup "swayidle" "-w"
 spawn-at-startup "wlsunset" "-l" "33.9" "-L" "151.2" "-g" "0.9"
 spawn-at-startup "activate-linux"
 spawn-at-startup "/usr/libexec/xdg-desktop-portal"
-spawn-at-startup "/usr/libexec/xdg-desktop-portal-gtk"
-spawn-at-startup "/usr/libexec/xdg-desktop-portal-gnome"
 
 prefer-no-csd
 screenshot-path "~/files/screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
