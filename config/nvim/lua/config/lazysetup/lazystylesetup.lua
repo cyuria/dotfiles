@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
     -- feline.nvim
     {

@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
     -- which-key.nvim
     {
