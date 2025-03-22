@@ -14,6 +14,10 @@ return {
     enable_plugins = version.major >= 1 or version.minor >= 8,
     enable_loader = version.major >= 1 or version.minor >= 10,
     enable_github = vim.fn.executable 'gh' == 1,
-    enable_discord = vim.fn.executable 'discord' == 1,
+    enable_discord = true,
+    -- search for the discord ipc path
+    --enable_discord = vim.fs.find({ 'discord-ipc-0' }, {
+    --    path = vim.fn.stdpath('run')
+    --}),
     gmake = get_gnu_make(),
 }

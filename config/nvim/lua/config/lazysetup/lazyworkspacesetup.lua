@@ -201,9 +201,13 @@ return {
         "ObserverOfTime/nvimcord",
         event = "VeryLazy",
         cond = require 'dependencies'.enable_discord,
-        branch = "workspace",
+        cmd = {
+            "NvimcordAssets",
+            "NvimcordFiletypes",
+            "NvimcordStop",
+            "NvimcordUpdate",
+        },
         opts = {
-            autostart = true,
             large_file_icon = true,
             dynamic_workspace = true,
         }
