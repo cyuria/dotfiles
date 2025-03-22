@@ -244,7 +244,7 @@ return {
         "comfysage/evergarden",
         lazy = false,
         opts = {
-            variant = 'hard',
+            variant = 'fall',
         },
     },
 }
