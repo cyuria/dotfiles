@@ -28,6 +28,9 @@ input {
 layout {
     gaps 16
 
+    empty-workspace-above-first
+    default-column-display "tabbed"
+
     struts {
         left 100
         right 100
@@ -50,6 +53,22 @@ layout {
         active-gradient from="#ff0000" to="#0000ff" angle=135 relative-to="workspace-view"
         inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
+
+    shadow {
+        on
+        softness 50
+        spread 5
+        offset x=2 y=8
+        draw-behind-window true
+        color "#00000070"
+    }
+
+    tab-indicator {
+        gap 5
+        width 4
+        position "right"
+
+    }
 }
 
 environment {
@@ -58,6 +77,7 @@ environment {
     SWWW_TRANSITION "outer"
     SWWW_TRANSITION_POS "0.854,0.977"
     SWWW_TRANSITION_STEP "30"
+    _JAVA_AWT_WM_NONREPARENTING "1"
 }
 
 spawn-at-startup "xwayland-satellite" ":6"
@@ -92,14 +112,6 @@ window-rule {
 window-rule {
     match is-active=false
     opacity 0.9
-}
-
-// Work around WezTerm's initial configure bug
-// by setting an empty default-column-width.
-window-rule {
-    match app-id="wezterm"
-    match app-id="steam"
-    default-column-width {}
 }
 
 // Example: block out two password managers from screen capture.
