@@ -4,19 +4,6 @@ local config = {}
 if wezterm.config_builder then config = wezterm.config_builder() end -- set config choices here
 config.hide_tab_bar_if_only_one_tab = true
 
--- Setup remote access to my server
-config.ssh_domains = {
-  {
-    -- This name identifies the domain
-    name = 'wiki.lauers.au',
-    -- The hostname or address to connect to. Will be used to match settings
-    -- from your ssh config file
-    remote_address = '172.105.117.139',
-    -- The username to use on the remote host
-    username = 'webserver',
-  },
-}
-
 config.enable_scroll_bar = true
 config.min_scroll_bar_height = '2cell'
 config.colors = {
