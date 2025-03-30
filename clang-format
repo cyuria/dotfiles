@@ -123,5 +123,5 @@ SpacesInParentheses: false
 SpacesInSquareBrackets: false
 Standard: c++03
 TabWidth: 8
-UseTab: AlignWithSpaces
+UseTab: ForIndentation
 ...
