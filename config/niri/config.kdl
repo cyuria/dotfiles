@@ -73,6 +73,7 @@ layout {
 
 environment {
     QT_QPA_PLATFORM "wayland"
+    QT_QPA_PLATFORMTHEME "gtk3"
     DISPLAY ":6"
     SWWW_TRANSITION "outer"
     SWWW_TRANSITION_POS "0.854,0.977"
@@ -84,6 +85,7 @@ spawn-at-startup "xwayland-satellite" ":6"
 spawn-at-startup "dbus-update-activation-environment" "DISPLAY"
 
 spawn-at-startup "swww-daemon"
+spawn-at-startup "morbled"
 spawn-at-startup "swayidle" "-w"
 spawn-at-startup "wlsunset" "-l" "33.9" "-L" "151.2" "-g" "0.9"
 spawn-at-startup "activate-linux"
@@ -154,6 +156,9 @@ binds {
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.03-"; }
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+
+    XF86MonBrightnessUp allow-when-locked=true { spawn "morblectl" "+" "%" "5"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "morblectl" "-" "%" "5"; }
 
     Mod+Q { close-window; }
 
