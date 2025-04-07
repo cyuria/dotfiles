@@ -63,6 +63,8 @@ vim.filetype.add({
     }
 })
 
+vim.diagnostic.config({ virtual_text = true })
+
 -- rustaceanvim takes options as arguments
 vim.g.rustaceanvim = {
     server = {

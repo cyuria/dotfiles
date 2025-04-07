@@ -75,18 +75,6 @@ local customconfig = {
             },
         },
     },
-    snyk = {
-        init_options = {
-            snyk = {
-                activateSnykCode = true
-            }
-        }
-    },
-    zls = {
-        settings = {
-
-        }
-    },
 }
 
 local system_lsp = {

@@ -6,13 +6,13 @@ vim.keymap.set(
     { silent = true }
 )
 vim.keymap.set(
-    "n", "<leader>xw",
-    "<cmd>Trouble workspace_diagnostics<cr>",
+    "n", "<leader>xd",
+    "<cmd>Trouble diagnostics<cr>",
     { silent = true }
 )
 vim.keymap.set(
-    "n", "<leader>xd",
-    "<cmd>Trouble document_diagnostics<cr>",
+    "n", "<leader>xt",
+    "<cmd>Trouble todo<cr>",
     { silent = true }
 )
 vim.keymap.set(
@@ -26,7 +26,7 @@ vim.keymap.set(
     { silent = true }
 )
 vim.keymap.set(
-    "n", "gR",
+    "n", "<leader>xr",
     "<cmd>Trouble lsp_references<cr>",
     { silent = true }
 )
