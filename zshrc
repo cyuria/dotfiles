@@ -21,7 +21,6 @@ source $ZSH/oh-my-zsh.sh
 compinit
 
 alias cdg='cd $(git rev-parse --show-toplevel)'
-alias zg='zig build'
 
 # thefuck has really slow load times so cache the output
 if [[ -f "$HOME/.scripts/fuck.sh" ]]; then
