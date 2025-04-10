@@ -40,9 +40,6 @@ return {
         opts = {
             check_ts = true, -- use treesitter
         },
-        dependencies = {
-            "nvim-cmp",
-        },
     },
     -- nvim-ts-autotag
     {
