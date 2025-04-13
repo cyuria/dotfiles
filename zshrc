@@ -14,7 +14,7 @@ HIST_STAMPS="dd.mm.yyyy"
 
 plugins=( git zsh-vi-mode fast-syntax-highlighting )
 
-fpath=( $HOME/.zsh_completions $fpath )
+fpath=( $HOME/.local/share/zsh/completions $fpath )
 
 zstyle ':omz:update' mode reminder
 source $ZSH/oh-my-zsh.sh
