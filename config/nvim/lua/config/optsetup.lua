@@ -63,7 +63,7 @@ vim.filetype.add({
     }
 })
 
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config({ virtual_lines = true })
 
 -- rustaceanvim takes options as arguments
 vim.g.rustaceanvim = {

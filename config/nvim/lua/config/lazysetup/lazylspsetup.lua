@@ -140,9 +140,15 @@ return {
             vim.treesitter.language.register("htmldjango", "html")
         end,
     },
+    -- rustaceanvim
     {
         "mrcjkb/rustaceanvim",
         version = '^5',
         lazy = false,
     },
+    -- lsp_lines
+    {
+        url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        config = true,
+    }
 }
