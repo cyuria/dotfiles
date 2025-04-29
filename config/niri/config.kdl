@@ -89,6 +89,7 @@ spawn-at-startup "morbled"
 spawn-at-startup "swayidle" "-w"
 spawn-at-startup "wlsunset" "-l" "33.9" "-L" "151.2" "-g" "0.9"
 spawn-at-startup "activate-linux"
+spawn-at-startup "way-edges"
 spawn-at-startup "/usr/libexec/xdg-desktop-portal"
 
 prefer-no-csd
