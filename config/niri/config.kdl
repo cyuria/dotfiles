@@ -83,7 +83,6 @@ environment {
 
 spawn-at-startup "xwayland-satellite" ":6"
 spawn-at-startup "dbus-update-activation-environment" "DISPLAY"
-
 spawn-at-startup "swww-daemon"
 spawn-at-startup "morbled"
 spawn-at-startup "swayidle" "-w"
