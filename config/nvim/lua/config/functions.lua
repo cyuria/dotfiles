@@ -13,7 +13,7 @@ local function googleSearch(s_start, s_end)
         lines[n_lines] = string.sub(lines[n_lines], 1, s_end[3])
     end
     local term = table.concat(lines, '\n')
-    vim.fn.system("firefox \"https://google.com/search?q=" .. term .. "\" &", '')
+    vim.fn.system("firefox --search \"" .. term .. "\"", '')
 end
 
 return {
