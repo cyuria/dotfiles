@@ -130,7 +130,7 @@ window-rule {
 
 window-rule {
     match app-id="foot"
-    default-column-width { fixed 800; }
+    default-column-width { fixed 1000; }
 }
 
 hotkey-overlay {
