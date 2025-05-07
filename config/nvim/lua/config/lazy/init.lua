@@ -31,12 +31,11 @@ local plugins = {
         cmd = "BlackJackNewGame",
     },
     "nvim-lua/plenary.nvim",
-    { import = 'config.lazysetup.lazylspsetup' },
-    { import = 'config.lazysetup.lazystylesetup' },
-    { import = 'config.lazysetup.lazycoloursetup' },
-    { import = 'config.lazysetup.lazyutilitysetup' },
-    { import = 'config.lazysetup.lazyworkspacesetup' },
-    { import = 'config.lazysetup.lazyenvironmentsetup' },
+    { import = 'config.lazy.lsp' },
+    { import = 'config.lazy.colour' },
+    { import = 'config.lazy.utility' },
+    { import = 'config.lazy.workspace' },
+    { import = 'config.lazy.view' },
 }
 
 local lazyopts = {
@@ -66,6 +65,9 @@ local lazyopts = {
     change_detection = {
         enabled = true,
         notify = false,
+    },
+    rocks = {
+        enabled = false,
     },
 }
 

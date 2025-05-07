@@ -184,7 +184,6 @@ return {
                 noice = true,
                 octo = require'dependencies'.github,
                 treesitter = true,
-                which_key = true,
             }
         },
     },

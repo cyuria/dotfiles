@@ -27,7 +27,7 @@ return {
     {
         "nvim-telescope/telescope-fzf-native.nvim",
         build =
-        'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+        'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5 && cmake --build build --config Release',
         event = "VeryLazy",
     },
     -- lir.nvim + extensions
@@ -106,13 +106,9 @@ return {
         dependencies = {
             "plenary.nvim",
             "nvim-tree/nvim-web-devicons",
-            "lir-mmv.nvim",
+            "tamago324/lir-mmv.nvim",
             "lir-git-status.nvim",
         }
-    },
-    {
-        "tamago324/lir-mmv.nvim",
-        event = "VeryLazy",
     },
     {
         "tamago324/lir-git-status.nvim",
@@ -139,50 +135,6 @@ return {
         },
         dependencies = {
             "nvim-tree/nvim-web-devicons"
-        },
-    },
-    -- noice.nvim
-    {
-        "folke/noice.nvim",
-        lazy = false,
-        enabled = false,
-        opts = {
-            lsp = {
-                override = {
-                    ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-                    ["vim.lsp.util.stylize_markdown"] = true,
-                    ["cmp.entry.get_documentation"] = true,
-                },
-            },
-            routes = {
-                {
-                    view = "popup",
-                    filter = {
-                        min_height = 10,
-                        cmdline = true,
-                    },
-                },
-                {
-                    view = "split",
-                    filter = {
-                        min_height = 20,
-                    },
-                },
-            },
-        },
-        dependencies = {
-            "muniftanjim/nui.nvim",
-            "nvim-notify",
-        },
-    },
-    -- nvim-notify
-    {
-        "rcarriga/nvim-notify",
-        event = "VeryLazy",
-        opts = {
-            top_down = false,
-            fps = 20,
-            background_colour = "#000000",
         },
     },
     -- octo.nvim
@@ -220,7 +172,7 @@ return {
             vim.g.vimtex_view_method = "zathura"
         end
     },
-    -- vim-gutentags
+    -- gentags.nvim
     {
         "linrongbin16/gentags.nvim",
         opts = {},

@@ -1,4 +1,4 @@
--- Seat leader key to spacebar
+-- All non default keybinds should start with <leader>, which is space
 vim.g.mapleader = ' '
 
 vim.o.expandtab = true
@@ -6,13 +6,13 @@ vim.o.shiftwidth = 4
 vim.o.tabstop = 4
 
 -- Formatting stuff for line numbers, new split windows and searching
---vim.opt.relativenumber = true
 vim.opt.ignorecase = true
 vim.opt.number = true
 vim.opt.smartcase = true
 vim.opt.splitright = true
 vim.opt.termguicolors = true
-vim.opt.timeoutlen = 150
+vim.opt.timeoutlen = 3000
+vim.opt.ttimeoutlen = 100
 
 vim.opt.showtabline = 2
 
@@ -68,19 +68,11 @@ vim.diagnostic.config({ virtual_lines = true })
 -- rustaceanvim takes options as arguments
 vim.g.rustaceanvim = {
     server = {
-        cmd = function ()
-            local mason_registry = require('mason-registry')
-            if mason_registry.is_installed('rust-analyzer') then
-                -- This may need to be tweaked depending on the operating system.
-                local ra = mason_registry.get_package('rust-analyzer')
-                local ra_filename = ra:get_receipt():get().links.bin['rust-analyzer']
-                return { ('%s/%s'):format(ra:get_install_path(), ra_filename or 'rust-analyzer') }
-            else
-                -- global installation
-                return { 'rust-analyzer' }
-            end
-        end,
-
+        cmd = { 'rust-analyzer' },
     },
 }
 
+-- Colourscheme stuff
+vim.g.gruvbox_contrast_dark = 'soft'
+vim.g.gruvbox_baby_telescope_theme = 1
+vim.g.gruvbox_baby_transparent_mode = 1

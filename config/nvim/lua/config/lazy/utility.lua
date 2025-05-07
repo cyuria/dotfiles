@@ -1,21 +1,14 @@
 ---@type LazySpec
 return {
-    -- which-key.nvim
-    {
-        "folke/which-key.nvim",
-        event = "VeryLazy",
-        opts = {},
-    },
     -- persistence.nvim
     {
         "folke/persistence.nvim",
-        lazy = false,
+        event = "BufReadPre",
         opts = {},
     },
     -- nvim-surround
     {
         "kylechui/nvim-surround",
-        event = "VeryLazy",
         opts = {
             keymaps = {
                 normal = "<leader>ys",
@@ -36,7 +29,6 @@ return {
     -- nvim-autopairs
     {
         "windwp/nvim-autopairs",
-        event = "VeryLazy",
         opts = {
             check_ts = true, -- use treesitter
         },
@@ -44,16 +36,10 @@ return {
     -- nvim-ts-autotag
     {
         "windwp/nvim-ts-autotag",
-        event = "VeryLazy",
         config = true,
         dependencies = {
             "nvim-treesitter",
         },
-    },
-    -- vim-lastplace
-    {
-        "farmergreg/vim-lastplace",
-        lazy = false,
     },
     -- beacon.nvim
     {
@@ -64,23 +50,9 @@ return {
     -- nvim-colorizer.lua
     {
         "norcalli/nvim-colorizer.lua",
-        event = "VeryLazy",
-        opts = {
-            filetypes = {},
-            defaults = {},
-        },
-        config = function (_, opts)
-            require 'colorizer'.setup(opts.filetypes, opts.defaults)
-        end
-    },
-    -- gitsigns.nvim
-    {
-        "lewis6991/gitsigns.nvim",
-        event = "VeryLazy",
-        opts = {
-            current_line_blame = true,
-            current_line_blame_formatter = '<author>, <summary> - <author_time:%d/%m/%Y>',
-        },
+        main = "colorizer",
+        ft = "*",
+        opts = { '*' },
     },
     -- todo-comments.nvim
     {
@@ -109,28 +81,16 @@ return {
     -- vim-unimpaired
     {
         "tpope/vim-unimpaired",
-        event = "VeryLazy",
     },
     -- AnsiEsc.vim
     {
-        "vim-scripts/AnsiEsc.vim",
-        event = "VeryLazy",
+        "Makaze/AnsiEsc",
     },
     -- build.nvim
     {
         "cyuria/build.nvim",
         dev = true,
-        event = "VeryLazy",
-        opts = {
-            extra_programs = {
-                make = function (root, _)
-                    if not root then
-                        return "unbuffer make $*"
-                    end
-                    return "unbuffer make $* -C " .. root
-                end,
-            },
-        },
+        opts = {},
     },
     -- gx.nvim
     {
