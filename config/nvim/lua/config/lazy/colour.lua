@@ -247,4 +247,12 @@ return {
             variant = 'fall',
         },
     },
+    -- cold
+    {
+        "https://github.com/gmr458/cold.nvim",
+        lazy = false,
+        opts = {
+            italic_keyword = true,
+        },
+    },
 }
