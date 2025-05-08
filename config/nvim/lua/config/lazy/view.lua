@@ -22,15 +22,6 @@ return {
             "twilight.nvim",
         },
     },
-    -- alpha-nvim
-    {
-        "goolord/alpha-nvim",
-        lazy = false,
-        opts = require'config.alpha'.config,
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
-    },
     -- gitsigns.nvim
     {
         "lewis6991/gitsigns.nvim",
