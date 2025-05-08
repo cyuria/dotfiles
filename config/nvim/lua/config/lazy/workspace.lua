@@ -5,6 +5,7 @@ return {
         "nvim-telescope/telescope.nvim",
         branch = "0.1.x",
         event = "VeryLazy",
+        cmd = "Telescope",
         opts = {},
         dependencies = {
             "plenary.nvim",
@@ -20,7 +21,6 @@ return {
             require 'telescope'.load_extension 'notify'
             --require 'telescope'.load_extension 'noice'
             require 'telescope'.load_extension 'fzf'
-            require 'config.remap.telescopemappings'
         end,
     },
     -- telescope-fzf-native.nvim
