@@ -7,7 +7,7 @@ return {
             ":TSUpdate",
             ":TSInstall all",
         },
-        lazy = false,
+        event = "filetype",
         opts = {
             sync_install = false,
             auto_install = true,
@@ -118,6 +118,7 @@ return {
     -- lsp_lines
     {
         url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        event = "LspAttach",
         config = true,
     }
 }

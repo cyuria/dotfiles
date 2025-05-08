@@ -9,6 +9,17 @@ return {
     -- nvim-surround
     {
         "kylechui/nvim-surround",
+        keys = {
+            "<leader>ys",
+            "<leader>y<leader>",
+            "<leader>yS",
+            "<leader>yS<leader>",
+            "<leader>S",
+            "<leader>gS",
+            "<leader>ds",
+            "<leader>cs",
+            "<leader>cS",
+        },
         opts = {
             keymaps = {
                 normal = "<leader>ys",
@@ -29,6 +40,7 @@ return {
     -- nvim-autopairs
     {
         "windwp/nvim-autopairs",
+        event = "InsertEnter",
         opts = {
             check_ts = true, -- use treesitter
         },
@@ -36,6 +48,7 @@ return {
     -- nvim-ts-autotag
     {
         "windwp/nvim-ts-autotag",
+        event = "InsertEnter",
         config = true,
         dependencies = {
             "nvim-treesitter",
@@ -77,18 +90,22 @@ return {
     -- vim-matchup
     {
         "andymass/vim-matchup",
+        event = "filetype",
     },
     -- vim-unimpaired
     {
         "tpope/vim-unimpaired",
+        event = "UIEnter",
     },
     -- AnsiEsc.vim
     {
         "Makaze/AnsiEsc",
+        event = "BufReadPre",
     },
     -- build.nvim
     {
         "cyuria/build.nvim",
+        event = "UIEnter",
         dev = true,
         opts = {},
     },

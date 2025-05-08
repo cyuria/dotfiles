@@ -167,7 +167,7 @@ return {
     -- vimtex
     {
         "lervag/vimtex",
-        lazy = false,
+        filetype = "tex",
         init = function ()
             vim.g.vimtex_view_method = "zathura"
         end
@@ -175,6 +175,7 @@ return {
     -- gentags.nvim
     {
         "linrongbin16/gentags.nvim",
+        event = "VeryLazy",
         opts = {},
     },
 }
