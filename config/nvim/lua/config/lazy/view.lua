@@ -35,7 +35,7 @@ return {
     {
         "famiu/feline.nvim",
         lazy = false,
-        opts = function () return require'config.felinesetup' end,
+        opts = function () return require'config.feline' end,
         config = function (_, opts)
             local feline = require'feline'
             feline.setup(opts)

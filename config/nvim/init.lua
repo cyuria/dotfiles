@@ -11,5 +11,5 @@ end
 require 'config.remap'
 require 'config.autocommands'
 if require 'dependencies'.enable_plugins then
-    require 'config.felinesetup'
+    require 'config.feline'
 end
