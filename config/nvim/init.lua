@@ -11,6 +11,3 @@ end
 require 'config.lsp'
 require 'config.remap'
 require 'config.autocommands'
-if require 'dependencies'.enable_plugins then
-    require 'config.feline'
-end
