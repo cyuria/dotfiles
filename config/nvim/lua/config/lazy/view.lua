@@ -31,18 +31,6 @@ return {
             "nvim-tree/nvim-web-devicons",
         },
     },
-    -- feline.nvim
-    {
-        "famiu/feline.nvim",
-        enabled = false,
-        lazy = false,
-        opts = function () return require'config.feline' end,
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-            "gitsigns.nvim",
-            "tokyonight.nvim",
-        },
-    },
     -- gitsigns.nvim
     {
         "lewis6991/gitsigns.nvim",
