@@ -1,6 +1,41 @@
 -- ensure the leader key doesn't do anything else
 vim.keymap.set('n', '<leader>', '<nop>')
 
+if require 'dependencies'.enable_plugins then
+    -- undo tree
+    vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+
+    -- zen mode
+    vim.keymap.set('n', '<leader>z', vim.cmd.ZenMode)
+
+    -- persistence and session management
+    vim.keymap.set("n", "<leader>sd", function () require('persistence').load() end, {})
+    vim.keymap.set("n", "<leader>sl", function () require('persistence').load({ last = true }) end, {})
+    vim.keymap.set("n", "<leader>ss", function () require('persistence').select() end, {})
+
+    -- trouble.nvim
+    vim.keymap.set("n", "<leader>xx", vim.cmd.Trouble, { silent = true })
+    vim.keymap.set("n", "<leader>xd", function () vim.cmd.Trouble("diagnostics toggle") end)
+    vim.keymap.set("n", "<leader>xt", function () vim.cmd.Trouble("todo toggle") end)
+    vim.keymap.set("n", "<leader>xl", function () vim.cmd.Trouble("loclist toggle") end)
+    vim.keymap.set("n", "<leader>xq", function () vim.cmd.Trouble("quickfix toggle") end)
+    vim.keymap.set("n", "<leader>xr", function () vim.cmd.Trouble("lsp_references toggle") end)
+
+    -- telescope.nvim
+    vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files)
+    vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers)
+    vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags)
+    vim.keymap.set('n', '<leader>ft', require('telescope').extensions['todo-comments'].todo)
+    vim.keymap.set('n', '<leader>fc', require('telescope.builtin').colorscheme)
+    vim.keymap.set('n', '<leader>fg', require('telescope').extensions.live_grep_args.live_grep_args)
+    vim.keymap.set('n', '<leader>fl', require('telescope.builtin').git_commits)
+    vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics)
+    vim.keymap.set('n', '<leader>fD', function () require('telescope.builtin').diagnostics({ bufnr = 0 }) end)
+    vim.keymap.set('n', '<leader>fr', require('telescope.builtin').resume)
+    vim.keymap.set('n', '<leader>fa', require('telescope.builtin').builtin)
+    vim.keymap.set('n', '<leader>fn', require('telescope').extensions.notify.notify)
+end
+
 -- google search for text with "<leader>?"
 vim.keymap.set('n', '<leader>?', function ()
     local old_opfunc = vim.go.operatorfunc
@@ -23,38 +58,4 @@ vim.keymap.set('v', '<leader>?', function ()
         vim.fn.getpos("'>")
     )
 end, {})
-
-if require 'dependencies'.enable_plugins then
-    vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
-
-    vim.keymap.set('n', '<leader>zm', vim.cmd.ZenMode)
-
-    -- configure persistent loading mappings
-    vim.keymap.set("n", "<F8>", function () require('persistence').load() end, {})
-    vim.keymap.set("n", "<F9>", function () require('persistence').load({ last = true }) end, {})
-
-    -- trouble.nvim key mappings
-    vim.keymap.set("n", "<leader>xx", "<cmd>Trouble<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>xd", "<cmd>Trouble diagnostics<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>xt", "<cmd>Trouble todo<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>xr", "<cmd>Trouble lsp_references<cr>", { silent = true })
-
-    -- configure telescope.nvim
-    vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files)
-    vim.keymap.set('n', '<leader>fw', require('telescope.builtin').lsp_workspace_symbols)
-    vim.keymap.set('n', '<leader>fv', require('telescope.builtin').treesitter)
-    vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers)
-    vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags)
-    vim.keymap.set('n', '<leader>ft', require('telescope').extensions['todo-comments'].todo)
-    vim.keymap.set('n', '<leader>fc', require('telescope.builtin').colorscheme)
-    vim.keymap.set('n', '<leader>fg', require('telescope').extensions.live_grep_args.live_grep_args)
-    vim.keymap.set('n', '<leader>fl', require('telescope.builtin').git_commits)
-    vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics)
-    vim.keymap.set('n', '<leader>fD', function () require('telescope.builtin').diagnostics({ bufnr = 0 }) end)
-    vim.keymap.set('n', '<leader>fr', require('telescope.builtin').resume)
-    vim.keymap.set('n', '<leader>fa', require('telescope.builtin').builtin)
-    vim.keymap.set('n', '<leader>fn', require('telescope').extensions.notify.notify)
-end
 

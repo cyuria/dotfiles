@@ -127,12 +127,7 @@ return {
     {
         "folke/trouble.nvim",
         opts = {},
-        cmd = {
-            "Trouble",
-            "TroubleClose",
-            "TroubleToggle",
-            "TroubleRefresh",
-        },
+        cmd = "Trouble",
         dependencies = {
             "nvim-tree/nvim-web-devicons"
         },
