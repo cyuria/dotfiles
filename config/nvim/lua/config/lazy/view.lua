@@ -99,4 +99,13 @@ return {
             background_colour = "#000000",
         },
     },
+    -- nvim-treesitter-context
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+        event = "filetype",
+        opts = {},
+        dependencies = {
+            "nvim-treesitter",
+        },
+    },
 }

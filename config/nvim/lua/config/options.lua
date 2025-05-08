@@ -14,7 +14,7 @@ vim.opt.termguicolors = true
 vim.opt.timeoutlen = 3000
 vim.opt.ttimeoutlen = 100
 
-vim.opt.showtabline = 2
+vim.opt.showtabline = 1
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
