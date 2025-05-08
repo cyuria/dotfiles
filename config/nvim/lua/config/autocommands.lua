@@ -1,11 +1,5 @@
 local augroup = vim.api.nvim_create_augroup("openBufOpts", {})
 
--- ctags
-vim.api.nvim_create_autocmd({ "BufWritePost", "FileWritePost" }, {
-    group = augroup,
-    callback = require 'config.functions'.reloadCtags,
-});
-
 -- Repoen files with cursor in last location
 vim.api.nvim_create_autocmd({'BufWinEnter'}, {
     group = augroup,

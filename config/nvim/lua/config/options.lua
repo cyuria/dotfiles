@@ -21,8 +21,6 @@ vim.opt.incsearch = true
 
 vim.opt.undofile = true
 
--- Set the location of the ctags file
-vim.opt.tags = ".tags,tags,./.tags,./tags,~/.tags"
 -- Set the search path for :find and :cd
 vim.opt.path = ",,**2,../**2"
 vim.opt.cdpath = ",,../,**1"

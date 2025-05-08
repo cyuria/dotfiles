@@ -1,7 +1,3 @@
-local function reloadCtags()
-    vim.system({ "/usr/bin/sh", "-c", "rg --files | ctags -f .tags --recurse -L -" })
-end
-
 -- Map <leader>? to google search selected text or motion
 local function googleSearch(s_start, s_end)
     local n_lines = math.abs(s_end[2] - s_start[2]) + 1
@@ -17,6 +13,5 @@ local function googleSearch(s_start, s_end)
 end
 
 return {
-    reloadCtags = reloadCtags,
     googleSearch = googleSearch,
 }
