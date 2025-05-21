@@ -89,6 +89,7 @@ spawn-at-startup "swayidle" "-w"
 spawn-at-startup "wlsunset" "-l" "33.9" "-L" "151.2" "-g" "0.9"
 spawn-at-startup "activate-linux"
 spawn-at-startup "wallclock"
+spawn-at-startup "wallbattery"
 spawn-at-startup "/usr/libexec/xdg-desktop-portal"
 
 prefer-no-csd
@@ -102,6 +103,12 @@ animations {
         spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
     }
 
+}
+
+layer-rule {
+    match namespace="^swww-daemon$"
+
+    place-within-backdrop false
 }
 
 window-rule {
@@ -150,6 +157,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Shift+Return { spawn "foot"; }
     Mod+Space { spawn "fuzzel"; }
+    Mod+Shift+Space { toggle-overview; }
     Mod+Escape { spawn "zsh" "-c" "niri msg action power-off-monitors && swaylock"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.03+"; }
