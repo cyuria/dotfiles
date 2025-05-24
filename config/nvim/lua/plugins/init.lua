@@ -31,11 +31,11 @@ local plugins = {
         cmd = "BlackJackNewGame",
     },
     "nvim-lua/plenary.nvim",
-    { import = 'config.lazy.lsp' },
-    { import = 'config.lazy.colour' },
-    { import = 'config.lazy.utility' },
-    { import = 'config.lazy.workspace' },
-    { import = 'config.lazy.view' },
+    { import = 'plugins.lsp' },
+    { import = 'plugins.colour' },
+    { import = 'plugins.utility' },
+    { import = 'plugins.workspace' },
+    { import = 'plugins.view' },
 }
 
 local lazyopts = {
