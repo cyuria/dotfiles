@@ -14,28 +14,16 @@ end
 -- Add lazy path to $RUNTIMEPATH for require'lazy' below
 vim.opt.rtp:prepend(lazypath)
 
+---@type LazySpec
 local plugins = {
-    -- nvimesweeper
-    {
-        "seandewar/nvimesweeper",
-        cmd = "Nvimesweeper",
-    },
-    -- nvim-tetris
-    {
-        "alec-gibson/nvim-tetris",
-        cmd = "Tetris",
-    },
-    -- blackjack.nvim
-    {
-        "alanfortlink/blackjack.nvim",
-        cmd = "BlackJackNewGame",
-    },
-    "nvim-lua/plenary.nvim",
-    { import = 'plugins.lsp' },
+    { "nvim-lua/plenary.nvim", optional = true },
     { import = 'plugins.colour' },
+    { import = 'plugins.games' },
+    { import = 'plugins.lsp' },
+    { import = 'plugins.specific' },
     { import = 'plugins.utility' },
-    { import = 'plugins.workspace' },
     { import = 'plugins.view' },
+    { import = 'plugins.workspace' },
 }
 
 local lazyopts = {

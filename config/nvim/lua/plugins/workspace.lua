@@ -159,14 +159,6 @@ return {
             dynamic_workspace = true,
         }
     },
-    -- vimtex
-    {
-        "lervag/vimtex",
-        filetype = "tex",
-        init = function ()
-            vim.g.vimtex_view_method = "zathura"
-        end
-    },
     -- gentags.nvim
     {
         "linrongbin16/gentags.nvim",
