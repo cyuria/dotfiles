@@ -12,6 +12,30 @@ local function googleSearch(s_start, s_end)
     vim.fn.system("firefox --search \"" .. term .. "\"", '')
 end
 
+local function loadSavedColorScheme()
+    local file_path = vim.fn.stdpath('data') .. '/saved_colourscheme'
+    local file, open_err = vim.uv.fs_open(file_path, "r", 432)
+    if open_err ~= nil then
+        vim.notify(open_err .. " Could not open file '" .. file_path .. "' for reading to load cached color scheme")
+        return
+    end
+    assert(file ~= nil)
+    local stat, stat_err = vim.uv.fs_stat(file_path)
+    if stat == nil then
+        error(stat_err .. " Could not stat file '" .. file_path .. "' to load cached color scheme")
+        return
+    end
+    local colorscheme, read_err = vim.uv.fs_read(file, stat.size, 0)
+    if read_err ~= nil then
+        error(read_err .. " Could not read file '" .. file_path .. "' to load cached color scheme")
+    end
+    vim.cmd.colorscheme(colorscheme)
+    local _, close_err = vim.uv.fs_close(file)
+    if close_err ~= nil then
+        error(close_err .. " Could not close file '" .. file_path .. "' to load cached color scheme")
+    end
+end
+
 -- google search for text with "<leader>?"
 vim.keymap.set('n', '<leader>?', function()
     local old_opfunc = vim.go.operatorfunc
@@ -29,6 +53,9 @@ vim.keymap.set('v', '<leader>?', function()
     googleSearch(vim.fn.getpos("'<"), vim.fn.getpos("'>"))
 end, {})
 
+loadSavedColorScheme()
+
 return {
     googleSearch = googleSearch,
+    loadSavedColorScheme = loadSavedColorScheme,
 }
