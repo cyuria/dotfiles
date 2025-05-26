@@ -41,15 +41,12 @@ vim.g.neovide_hide_mouse_when_typing = true
 -- Disable perl provider so :checkhealth stops complaining
 vim.g.loaded_perl_provider = 0
 
--- I have absolutely no clue why this is default
-vim.g.zig_fmt_autosave = 0
-
 -- Interpret .h files as c
 vim.g.c_syntax_for_h = 1
 
 -- Remove extra menu items from mouse right click menu
-vim.cmd('aunmenu PopUp.How-to\\ disable\\ mouse')
-vim.cmd('aunmenu PopUp.-1-')
+vim.cmd.aunmenu('PopUp.How-to\\ disable\\ mouse')
+vim.cmd.aunmenu('PopUp.-2-')
 
 vim.filetype.add({
     extension = {
@@ -64,11 +61,7 @@ vim.filetype.add({
 vim.diagnostic.config({ virtual_lines = true })
 
 -- rustaceanvim takes options as arguments
-vim.g.rustaceanvim = {
-    server = {
-        cmd = { 'rust-analyzer' },
-    },
-}
+vim.g.rustaceanvim = { server = { cmd = { 'rust-analyzer' } } }
 
 -- Colourscheme stuff
 vim.g.gruvbox_contrast_dark = 'soft'

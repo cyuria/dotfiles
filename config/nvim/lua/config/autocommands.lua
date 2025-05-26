@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd({'BufWinEnter'}, {
     command = 'silent! normal! g`"zv',
 })
 
-if require 'dependencies'.enable_discord then
+if require 'config.dependencies'.enable then
     vim.api.nvim_create_autocmd({ "BufLeave" }, {
         group = augroup,
         command = 'NvimcordUpdate',

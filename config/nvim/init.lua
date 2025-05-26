@@ -1,13 +1,14 @@
 -- Enable profiling
-if require 'dependencies'.enable_version then
+if require 'config.dependencies'.enable then
     vim.loader.enable()
 end
 
-require 'options'
-if require 'dependencies'.enable_plugins then
-    require 'plugins'
+require('config.options')
+require('config.functions')
+if require('config.dependencies').enable then
+    vim.keymap.set('n', '<leader>', '<nop>')
+    require('config.lazy')
     vim.cmd.colorscheme('evergarden')
 end
-require('lsp')
-require('remap')
-require('autocommands')
+require('config.lsp')
+require('config.autocommands')

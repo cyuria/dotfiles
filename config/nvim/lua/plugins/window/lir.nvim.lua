@@ -1,40 +1,9 @@
 ---@type LazySpec
 return {
-    -- telescope.nvim
-    {
-        "nvim-telescope/telescope.nvim",
-        branch = "0.1.x",
-        event = "VeryLazy",
-        cmd = "Telescope",
-        opts = {},
-        dependencies = {
-            "plenary.nvim",
-            "nvim-telescope/telescope-live-grep-args.nvim",
-            "todo-comments.nvim",
-            "nvim-notify",
-            --"noice.nvim",
-            "telescope-fzf-native.nvim",
-        },
-        config = function ()
-            require 'telescope'.load_extension 'live_grep_args'
-            require 'telescope'.load_extension 'todo-comments'
-            require 'telescope'.load_extension 'notify'
-            --require 'telescope'.load_extension 'noice'
-            require 'telescope'.load_extension 'fzf'
-        end,
-    },
-    -- telescope-fzf-native.nvim
-    {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build =
-        'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5 && cmake --build build --config Release',
-        event = "VeryLazy",
-    },
-    -- lir.nvim + extensions
     {
         "tamago324/lir.nvim",
         event = "VeryLazy",
-        opts = function ()
+        opts = function()
             local actions = require 'lir.actions'
             local mark_actions = require 'lir.mark.actions'
             local clipboard_actions = require 'lir.clipboard.actions'
@@ -64,7 +33,7 @@ return {
                     ['.'] = actions.toggle_show_hidden,
                     ['D'] = actions.delete,
 
-                    ['J'] = function ()
+                    ['J'] = function()
                         mark_actions.toggle_mark 'v'
                         vim.cmd 'normal! j'
                     end,
@@ -76,7 +45,7 @@ return {
                 }
             }
         end,
-        config = function (_, opts)
+        config = function(_, opts)
             require 'lir'.setup(opts)
             require 'nvim-web-devicons'.set_icon {
                 lir_folder_icon = {
@@ -87,10 +56,10 @@ return {
             }
             vim.api.nvim_create_autocmd({ 'FileType' }, {
                 pattern = { "lir" },
-                callback = function ()
+                callback = function()
                     vim.keymap.set(
                         'x', 'J',
-                        function ()
+                        function()
                             require 'lir.mark.actions'.toggle_mark 'v'
                         end,
                         { buffer = true, noremap = true, silent = true, }
@@ -104,7 +73,7 @@ return {
             })
         end,
         dependencies = {
-            "plenary.nvim",
+            "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons",
             "tamago324/lir-mmv.nvim",
             "lir-git-status.nvim",
@@ -114,55 +83,8 @@ return {
         "tamago324/lir-git-status.nvim",
         event = "VeryLazy",
         opts = { show_ignored = true, },
-        config = function (_, opts)
+        config = function(_, opts)
             require 'lir.git_status'.setup(opts)
         end,
-    },
-    -- vim-fugitive
-    {
-        "tpope/vim-fugitive",
-        lazy = false,
-    },
-    -- trouble.nvim
-    {
-        "folke/trouble.nvim",
-        opts = {},
-        cmd = "Trouble",
-        dependencies = {
-            "nvim-tree/nvim-web-devicons"
-        },
-    },
-    -- octo.nvim
-    {
-        "pwntester/octo.nvim",
-        event = "VeryLazy",
-        cond = require 'dependencies'.enable_github,
-        opts = {},
-        dependencies = {
-            "plenary.nvim",
-            "nvim-tree/nvim-web-devicons",
-        }
-    },
-    -- nvimcord
-    {
-        "ObserverOfTime/nvimcord",
-        event = "VeryLazy",
-        cond = require 'dependencies'.enable_discord,
-        cmd = {
-            "NvimcordAssets",
-            "NvimcordFiletypes",
-            "NvimcordStop",
-            "NvimcordUpdate",
-        },
-        opts = {
-            large_file_icon = true,
-            dynamic_workspace = true,
-        }
-    },
-    -- gentags.nvim
-    {
-        "linrongbin16/gentags.nvim",
-        event = "VeryLazy",
-        opts = {},
-    },
+    }
 }
