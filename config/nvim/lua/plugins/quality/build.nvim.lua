@@ -2,7 +2,7 @@
 return {
     {
         "cyuria/build.nvim",
-        event = "UIEnter",
+        event = { "VeryLazy", "DirChanged" },
         dev = true,
         opts = {},
     }
