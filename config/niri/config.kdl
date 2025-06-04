@@ -25,6 +25,10 @@ input {
     disable-power-key-handling
 }
 
+output "eDP-1" {
+    background-color "#00000000"
+}
+
 layout {
     gaps 16
 
@@ -84,12 +88,12 @@ environment {
 spawn-at-startup "xwayland-satellite" ":6"
 spawn-at-startup "dbus-update-activation-environment" "DISPLAY"
 spawn-at-startup "swww-daemon"
+spawn-at-startup "wallclock"
+spawn-at-startup "wallbattery"
 spawn-at-startup "morbled"
 spawn-at-startup "swayidle" "-w"
 spawn-at-startup "wlsunset" "-l" "33.9" "-L" "151.2" "-g" "0.9"
 spawn-at-startup "activate-linux"
-spawn-at-startup "wallclock"
-spawn-at-startup "wallbattery"
 spawn-at-startup "/usr/libexec/xdg-desktop-portal"
 
 prefer-no-csd
@@ -107,8 +111,9 @@ animations {
 
 layer-rule {
     match namespace="^swww-daemon$"
+    match namespace="^walldget-.*$"
 
-    place-within-backdrop false
+    place-within-backdrop true
 }
 
 window-rule {
