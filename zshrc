@@ -3,7 +3,6 @@ export EDITOR='nvim'
 export EDIT4TH="$EDITOR"
 export GPG_TTY=$(tty)
 export MANPAGER='nvim +Man!'
-export MANWIDTH=999
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
 ZSH_THEME="nicoulaj"
