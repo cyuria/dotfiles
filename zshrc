@@ -14,7 +14,7 @@ alias egrep='egrep --color=auto'
 
 alias cdg='cd $(git rev-parse --show-toplevel || echo .)'
 
-eval "$(zoxide init zsh --cmd cd)"
+eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
 source "$HOME/.zsh/antigen.zsh"
