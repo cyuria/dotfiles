@@ -1,10 +1,9 @@
 ---@type LazySpec
 return {
-    {
-        "comfysage/evergarden",
-        lazy = false,
-        opts = {
-            variant = 'fall',
-        },
-    },
+	{
+		"comfysage/evergarden",
+		opts = {
+			variant = "fall",
+		},
+	},
 }

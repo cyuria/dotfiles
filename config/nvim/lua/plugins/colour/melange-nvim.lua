@@ -1,8 +1,6 @@
 ---@type LazySpec
 return {
-
-    {
-        "savq/melange-nvim",
-        lazy = false,
-    },
+	{
+		"savq/melange-nvim",
+	},
 }

@@ -1,7 +1,6 @@
 ---@type LazySpec
 return {
-    {
-        "joshdick/onedark.vim",
-        lazy = false,
-    },
+	{
+		"joshdick/onedark.vim",
+	},
 }

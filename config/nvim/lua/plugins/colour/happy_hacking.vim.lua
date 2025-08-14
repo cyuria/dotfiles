@@ -1,7 +1,6 @@
 ---@type LazySpec
 return {
-    {
-        "yorickpeterse/happy_hacking.vim",
-        lazy = false,
-    },
+	{
+		"yorickpeterse/happy_hacking.vim",
+	},
 }

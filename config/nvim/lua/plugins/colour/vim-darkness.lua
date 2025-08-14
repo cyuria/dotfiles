@@ -1,7 +1,6 @@
 ---@type LazySpec
 return {
-    {
-        "jorengarenar/vim-darkness",
-        lazy = false,
-    },
+	{
+		"jorengarenar/vim-darkness",
+	},
 }

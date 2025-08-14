@@ -1,8 +1,7 @@
 ---@type LazySpec
 return {
-    {
-        "phha/zenburn.nvim",
-        lazy = false,
-        opts = {},
-    },
+	{
+		"phha/zenburn.nvim",
+		opts = {},
+	},
 }

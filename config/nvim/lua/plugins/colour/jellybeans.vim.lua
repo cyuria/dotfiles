@@ -1,7 +1,6 @@
 ---@type LazySpec
 return {
-    {
-        "nanotech/jellybeans.vim",
-        lazy = false,
-    },
+	{
+		"nanotech/jellybeans.vim",
+	},
 }

@@ -1,7 +1,6 @@
 ---@type LazySpec
 return {
-    {
-        "zacanger/angr.vim",
-        lazy = false,
-    }
+	{
+		"zacanger/angr.vim",
+	},
 }
