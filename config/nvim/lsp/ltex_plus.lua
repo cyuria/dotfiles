@@ -19,6 +19,8 @@ return {
 					"Cyuria",
 					"Heitmann",
 					"cyuria",
+					"syscall",
+					"syscalls",
 				},
 			},
 			disabledRules = {
