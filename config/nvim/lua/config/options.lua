@@ -30,8 +30,8 @@ vim.opt.path = ",,**2,../**2"
 vim.opt.cdpath = ",,../,**1"
 
 -- Disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+--vim.g.loaded_netrw = 1
+--vim.g.loaded_netrwPlugin = 1
 
 -- Neovide stuff
 vim.g.neovide_hide_mouse_when_typing = true
