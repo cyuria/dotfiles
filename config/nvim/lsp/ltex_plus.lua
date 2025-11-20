@@ -21,6 +21,7 @@ return {
 					"cyuria",
 					"syscall",
 					"syscalls",
+					"subkernel",
 				},
 			},
 			disabledRules = {

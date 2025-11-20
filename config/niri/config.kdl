@@ -84,14 +84,14 @@ environment {
 
 spawn-at-startup "xwayland-satellite" ":6"
 spawn-at-startup "dbus-update-activation-environment" "DISPLAY"
+spawn-at-startup "/usr/libexec/xdg-desktop-portal"
+spawn-at-startup "wlsunset" "-l" "33.9" "-L" "151.2" "-g" "0.9"
+spawn-at-startup "morbled"
 spawn-at-startup "swww-daemon"
+spawn-at-startup "activate-linux"
 spawn-at-startup "wallclock"
 spawn-at-startup "wallbattery"
-spawn-at-startup "morbled"
 spawn-at-startup "swayidle" "-w"
-spawn-at-startup "wlsunset" "-l" "33.9" "-L" "151.2" "-g" "0.9"
-spawn-at-startup "activate-linux"
-spawn-at-startup "/usr/libexec/xdg-desktop-portal"
 
 prefer-no-csd
 screenshot-path "~/files/screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
@@ -103,7 +103,6 @@ animations {
     workspace-switch {
         spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
     }
-
 }
 
 layer-rule {

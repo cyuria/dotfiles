@@ -30,8 +30,8 @@ vim.opt.path = ",,**2,../**2"
 vim.opt.cdpath = ",,../,**1"
 
 -- Disable netrw
---vim.g.loaded_netrw = 1
---vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- Neovide stuff
 vim.g.neovide_hide_mouse_when_typing = true
@@ -65,3 +65,15 @@ vim.g.rustaceanvim = { server = { cmd = { "rust-analyzer" } } }
 vim.g.gruvbox_contrast_dark = "soft"
 vim.g.gruvbox_baby_telescope_theme = 1
 vim.g.gruvbox_baby_transparent_mode = 1
+
+vim.g.clipboard = { -- for clipboard forwarding stuff thanks **tttttttttttttttt
+	name = "OSC 52",
+	copy = {
+		["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+		["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+	},
+	paste = {
+		["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+		["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+	},
+}
