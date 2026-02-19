@@ -1,0 +1,33 @@
+{
+  "plugins": {
+    "blink.cmp": {
+      "rev": "4b18c32adef2898f95cdef6192cbd5796c1a332d",
+      "src": "https://github.com/saghen/blink.cmp",
+      "version": "1.0.0 - 2.0.0"
+    },
+    "build.nvim": {
+      "rev": "ac28b69c70bff04044bc93717ebb789450349e5e",
+      "src": "https://github.com/cyuria/build.nvim"
+    },
+    "mini.nvim": {
+      "rev": "4ca988557786c9a4e41d5e5b6e31b4c9d7379f53",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
+    "modes.nvim": {
+      "rev": "0932ba4e0bdc3457ac89a8aeed4d56ca0b36977a",
+      "src": "https://github.com/mvllow/modes.nvim"
+    },
+    "nvim-treesitter": {
+      "rev": "4d9466677a5ceadef104eaa0fe08d60d91c4e9a7",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "oil.nvim": {
+      "rev": "f55b25e493a7df76371cfadd0ded5004cb9cd48a",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "vim-fugitive": {
+      "rev": "61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4",
+      "src": "https://github.com/tpope/vim-fugitive"
+    }
+  }
+}

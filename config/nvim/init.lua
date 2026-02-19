@@ -1,13 +1,31 @@
--- Enable profiling
-if require 'config.dependencies'.enable then
-    vim.loader.enable()
-end
+vim.opt.number = true
+vim.opt.path = { '.', './*', './**/*', '../**/*' }
+vim.opt.scrolloff = 4
+vim.opt.spelllang = { 'en_au', 'de' }
+vim.cmd.colorscheme('retrobox')
 
-require('config.options')
-if require('config.dependencies').enable then
-    vim.keymap.set('n', '<leader>', '<nop>')
-    require('config.lazy')
-end
-require('config.functions')
-require('config.autocommands')
-require('config.lsp')
+vim.lsp.config('*', {
+	root_markers = { '.git' },
+})
+
+vim.lsp.enable('clangd')
+vim.lsp.enable('gopls')
+vim.lsp.enable('ty')
+vim.lsp.enable('zls')
+
+vim.pack.add({
+	'https://github.com/cyuria/build.nvim',
+	'https://github.com/mvllow/modes.nvim',
+	'https://github.com/nvim-mini/mini.nvim',
+	'https://github.com/nvim-treesitter/nvim-treesitter',
+	{ src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('1') },
+	'https://github.com/stevearc/oil.nvim',
+	'https://github.com/tpope/vim-fugitive',
+})
+
+require('mini.git').setup()
+require('mini.icons').setup()
+require('mini.statusline').setup()
+require('modes').setup()
+require('oil').setup()
+require('blink.cmp').setup()
