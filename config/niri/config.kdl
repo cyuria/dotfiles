@@ -25,11 +25,9 @@ input {
     disable-power-key-handling
 }
 
-output "eDP-1" {
-    background-color "#00000000"
-}
-
 layout {
+    background-color "transparent"
+
     gaps 16
 
     struts {
@@ -88,9 +86,9 @@ spawn-at-startup "/usr/libexec/xdg-desktop-portal"
 spawn-at-startup "wlsunset" "-l" "33.9" "-L" "151.2" "-g" "0.9"
 spawn-at-startup "morbled"
 spawn-at-startup "swww-daemon"
+spawn-at-startup "zsh" "-c" "sleep 0.1 && wallclock"
+spawn-at-startup "zsh" "-c" "sleep 0.1 && wallbattery"
 spawn-at-startup "activate-linux"
-spawn-at-startup "wallclock"
-spawn-at-startup "wallbattery"
 spawn-at-startup "swayidle" "-w"
 
 prefer-no-csd
@@ -110,6 +108,10 @@ layer-rule {
     match namespace="^walldget-.*$"
 
     place-within-backdrop true
+}
+
+layer-rule {
+    match namespace="^walldget-.*$"
 }
 
 window-rule {
