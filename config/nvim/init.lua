@@ -1,6 +1,7 @@
 vim.opt.number = true
 vim.opt.path = { '.', './*', './**/*', '../**/*' }
 vim.opt.scrolloff = 4
+vim.opt.shiftwidth = 0
 vim.opt.spelllang = { 'en_au', 'de' }
 vim.cmd.colorscheme('retrobox')
 
@@ -10,6 +11,9 @@ vim.lsp.config('*', {
 
 vim.lsp.enable('clangd')
 vim.lsp.enable('gopls')
+vim.lsp.enable('mesonlsp')
+vim.lsp.enable('neocmakelsp')
+vim.lsp.enable('tinymist')
 vim.lsp.enable('ty')
 vim.lsp.enable('zls')
 
