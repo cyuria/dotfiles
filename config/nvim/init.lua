@@ -1,3 +1,4 @@
+vim.opt.exrc = true
 vim.opt.number = true
 vim.opt.path = { '.', './*', './**/*', '../**/*' }
 vim.opt.scrolloff = 4
@@ -11,6 +12,7 @@ vim.lsp.config('*', {
 
 vim.lsp.enable('clangd')
 vim.lsp.enable('gopls')
+vim.lsp.enable('lua_ls')
 vim.lsp.enable('mesonlsp')
 vim.lsp.enable('neocmakelsp')
 vim.lsp.enable('tinymist')
@@ -33,3 +35,4 @@ require('mini.statusline').setup()
 require('modes').setup()
 require('oil').setup()
 require('blink.cmp').setup()
+require('build').setup()
