@@ -1,0 +1,7 @@
+background = 242424
+background-opacity = 0.9
+font-family = "Maple Mono NF"
+mouse-hide-while-typing = true
+background-blur = true
+window-padding-balance = true
+window-padding-color = extend

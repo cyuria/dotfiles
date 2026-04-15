@@ -158,7 +158,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Shift+Return { spawn "foot"; }
+    Mod+Shift+Return { spawn "~/.local/bin/ghostty" "+new-window"; }
     Mod+Space { spawn "fuzzel"; }
     Mod+Shift+Space { toggle-overview; }
     Mod+Escape { spawn "zsh" "-c" "niri msg action power-off-monitors && swaylock"; }
