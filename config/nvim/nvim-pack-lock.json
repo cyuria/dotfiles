@@ -1,24 +1,24 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "4b18c32adef2898f95cdef6192cbd5796c1a332d",
+      "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
     "build.nvim": {
-      "rev": "26eef783759ed645a3ca369da64e004d0bbd2f59",
-      "src": "https://github.com/cyuria/build.nvim"
+      "rev": "aa1886991a632315507481526279ca74e6516dcc",
+      "src": "/home/cyuria/code/build.nvim"
     },
     "mini.nvim": {
-      "rev": "9d359222b3643f1fccbd8f3180445842e1cae00b",
+      "rev": "27a3e747a4e603b4121f5759e74020430ec7b7d5",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "modes.nvim": {
-      "rev": "0932ba4e0bdc3457ac89a8aeed4d56ca0b36977a",
+      "rev": "2badf8771dbb2d1e1066fd6a5dddaad2fc836e72",
       "src": "https://github.com/mvllow/modes.nvim"
     },
     "nvim-treesitter": {
-      "rev": "5cb05e1b0fa3c469958a2b26f36b3fe930af221c",
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "oil.nvim": {
