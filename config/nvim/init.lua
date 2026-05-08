@@ -23,8 +23,7 @@ vim.lsp.enable('ty')
 vim.lsp.enable('zls')
 
 vim.pack.add({
-	-- 'https://github.com/cyuria/build.nvim',
-	'/home/cyuria/code/build.nvim',
+	'https://github.com/cyuria/build.nvim',
 	'https://github.com/mvllow/modes.nvim',
 	'https://github.com/nvim-mini/mini.nvim',
 	'https://github.com/nvim-treesitter/nvim-treesitter',
