@@ -1,7 +1,7 @@
 vim.g.mapleader = ' '
 vim.opt.exrc = true
 vim.opt.number = true
-vim.opt.path = { '.', './*', './**/*', '../**/*' }
+vim.opt.path = { '.', './*', './**/*' }
 vim.opt.scrolloff = 4
 vim.opt.shiftwidth = 0
 vim.opt.spelllang = { 'en_au', 'de' }
@@ -18,6 +18,7 @@ vim.lsp.enable('gopls')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('mesonlsp')
 vim.lsp.enable('neocmakelsp')
+vim.lsp.enable('rust_analyzer')
 vim.lsp.enable('tinymist')
 vim.lsp.enable('ty')
 vim.lsp.enable('zls')
@@ -30,6 +31,7 @@ vim.pack.add({
 	{ src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('1') },
 	'https://github.com/stevearc/oil.nvim',
 	'https://github.com/tpope/vim-fugitive',
+	'https://github.com/xiyaowong/transparent.nvim',
 })
 
 require('blink.cmp').setup()

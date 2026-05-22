@@ -53,15 +53,6 @@ layout {
         inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
-    shadow {
-        on
-        softness 50
-        spread 5
-        offset x=2 y=8
-        draw-behind-window true
-        color "#00000070"
-    }
-
     tab-indicator {
         gap 5
         width 4
@@ -85,7 +76,7 @@ spawn-at-startup "dbus-update-activation-environment" "DISPLAY"
 spawn-at-startup "/usr/libexec/xdg-desktop-portal"
 spawn-at-startup "wlsunset" "-l" "33.9" "-L" "151.2" "-g" "0.9"
 spawn-at-startup "morbled"
-spawn-at-startup "swww-daemon"
+spawn-at-startup "awww-daemon"
 spawn-at-startup "zsh" "-c" "sleep 0.1 && wallclock"
 spawn-at-startup "zsh" "-c" "sleep 0.1 && wallbattery"
 spawn-at-startup "activate-linux"
@@ -104,7 +95,7 @@ animations {
 }
 
 layer-rule {
-    match namespace="^swww-daemon$"
+    match namespace="^awww-daemon$"
     match namespace="^walldget-.*$"
 
     place-within-backdrop true
@@ -118,7 +109,10 @@ window-rule {
     draw-border-with-background false
     geometry-corner-radius 20
     clip-to-geometry true
-    opacity 1.0
+
+    background-effect {
+	    blur true
+    }
 }
 
 window-rule {
@@ -158,7 +152,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Shift+Return { spawn "~/.local/bin/ghostty" "+new-window"; }
+    Mod+Shift+Return { spawn "/usr/bin/foot"; }
     Mod+Space { spawn "fuzzel"; }
     Mod+Shift+Space { toggle-overview; }
     Mod+Escape { spawn "zsh" "-c" "niri msg action power-off-monitors && swaylock"; }
