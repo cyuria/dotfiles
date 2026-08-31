@@ -1,13 +1,18 @@
 vim.g.mapleader = ' '
-vim.opt.exrc = true
-vim.opt.number = true
-vim.opt.path = { '.', './*', './**/*' }
-vim.opt.scrolloff = 4
+vim.opt.scrolloff = 2
 vim.opt.shiftwidth = 0
+vim.opt.exrc = true
+vim.opt.undofile = true
+vim.opt.path = { '.', './*', './**/*' }
 vim.opt.spelllang = { 'en_au', 'de' }
 vim.cmd.colorscheme('retrobox')
 
 vim.keymap.set('', '<leader>', '<nop>')
+
+vim.diagnostic.config({
+	signs = false,
+	virtual_text = true,
+})
 
 vim.lsp.config('*', {
 	root_markers = { '.git' },

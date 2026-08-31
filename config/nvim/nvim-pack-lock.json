@@ -6,27 +6,27 @@
       "version": "1.0.0 - 2.0.0"
     },
     "build.nvim": {
-      "rev": "aa1886991a632315507481526279ca74e6516dcc",
-      "src": "/home/cyuria/code/build.nvim"
+      "rev": "6c2f1a3e3bf286165d147a79b5e1f8ecabcb36e2",
+      "src": "https://github.com/cyuria/build.nvim"
     },
     "mini.nvim": {
-      "rev": "27a3e747a4e603b4121f5759e74020430ec7b7d5",
+      "rev": "a311ed247d527db9592bb434356badc705363746",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "modes.nvim": {
-      "rev": "2badf8771dbb2d1e1066fd6a5dddaad2fc836e72",
+      "rev": "8022c7345e51423b4cc6333971f3cbfb7e6035bc",
       "src": "https://github.com/mvllow/modes.nvim"
     },
     "nvim-treesitter": {
-      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "rev": "857651fce37eba032ebe28f3a206283cdc65c45a",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "oil.nvim": {
-      "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
+      "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "transparent.nvim": {
-      "rev": "8ac59883de84e9cd1850ea25cf087031c5ba7d54",
+      "rev": "e00ca1cf09caef575edf8da7e5a8b9193893b4c7",
       "src": "https://github.com/xiyaowong/transparent.nvim"
     },
     "vim-fugitive": {
