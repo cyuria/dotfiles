@@ -6,6 +6,7 @@ vim.opt.undofile = true
 vim.opt.path = { '.', './*', './**/*' }
 vim.opt.spelllang = { 'en_au', 'de' }
 vim.opt.foldlevel = 999
+vim.opt.termguicolors = true
 
 vim.keymap.set('', '<leader>', '<nop>')
 
