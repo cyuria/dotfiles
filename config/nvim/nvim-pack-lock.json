@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "ashen.nvim": {
+      "rev": "bfb04bd50b69d863469b2deb9fb361cf0d945ba7",
+      "src": "https://codeberg.org/ficd/ashen.nvim"
+    },
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/saghen/blink.cmp",
@@ -9,6 +13,22 @@
       "rev": "6c2f1a3e3bf286165d147a79b5e1f8ecabcb36e2",
       "src": "https://github.com/cyuria/build.nvim"
     },
+    "everforest": {
+      "rev": "85a86eb62409e3ec88713bff3d1b9d7374e112e4",
+      "src": "https://github.com/sainnhe/everforest"
+    },
+    "evergarden": {
+      "rev": "c8e5e7e67a36694e5d917b7065b26b59b8cb489f",
+      "src": "https://codeberg.org/evergarden/nvim"
+    },
+    "lackluster.nvim": {
+      "rev": "70dd682e564784893b984deb51dd5ddd263c8cc7",
+      "src": "https://github.com/slugbyte/lackluster.nvim"
+    },
+    "mellow.nvim": {
+      "rev": "6273b7f0ddf6ac2b75021b3bc0bd8b3305cfeef1",
+      "src": "https://github.com/mellow-theme/mellow.nvim"
+    },
     "mini.nvim": {
       "rev": "a311ed247d527db9592bb434356badc705363746",
       "src": "https://github.com/nvim-mini/mini.nvim"
@@ -17,6 +37,10 @@
       "rev": "8022c7345e51423b4cc6333971f3cbfb7e6035bc",
       "src": "https://github.com/mvllow/modes.nvim"
     },
+    "nvim": {
+      "rev": "c8e5e7e67a36694e5d917b7065b26b59b8cb489f",
+      "src": "https://codeberg.org/evergarden/nvim"
+    },
     "nvim-treesitter": {
       "rev": "857651fce37eba032ebe28f3a206283cdc65c45a",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -24,6 +48,10 @@
     "oil.nvim": {
       "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
       "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "oldworld.nvim": {
+      "rev": "db072a0bd2c90035fc3a57a73014cb54d3902f1f",
+      "src": "https://github.com/dgox16/oldworld.nvim"
     },
     "transparent.nvim": {
       "rev": "e00ca1cf09caef575edf8da7e5a8b9193893b4c7",

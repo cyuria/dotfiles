@@ -17,12 +17,8 @@ alias cdg='cd $(git rev-parse --show-toplevel || echo .)'
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
-source "$HOME/.zsh/antigen.zsh"
-# antigen bundle jeffreytse/zsh-vi-mode
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
-antigen apply
+source "$HOME/.zsh/antidote/antidote.zsh"
+antidote load "$HOME/.zsh/plugins.txt"
 
 bindkey -v
 
