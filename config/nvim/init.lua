@@ -40,7 +40,6 @@ vim.pack.add({
 	{ src = 'https://github.com/tpope/vim-fugitive' },
 })
 
-vim.cmd('set rtp+=~/code/everflame')
 vim.cmd.colorscheme('everflame')
 
 require('blink.cmp').setup()
