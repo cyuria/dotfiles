@@ -28,6 +28,7 @@ vim.lsp.enable('rust_analyzer')
 vim.lsp.enable('templ')
 vim.lsp.enable('tinymist')
 vim.lsp.enable('ty')
+vim.lsp.enable('verible')
 vim.lsp.enable('zls')
 
 vim.pack.add({
