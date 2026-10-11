@@ -23,7 +23,7 @@ vim.lsp.enable('clangd')
 vim.lsp.enable('gopls')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('mesonlsp')
-vim.lsp.enable('neocmakelsp')
+vim.lsp.enable('neocmake')
 vim.lsp.enable('rust_analyzer')
 vim.lsp.enable('templ')
 vim.lsp.enable('tinymist')
@@ -34,6 +34,7 @@ vim.pack.add({
 	{ src = 'https://codeberg.org/evergarden/nvim', name = "evergarden" },
 	{ src = 'https://github.com/cyuria/build.nvim' },
 	{ src = 'https://github.com/mvllow/modes.nvim' },
+	{ src = 'https://github.com/neovim/nvim-lspconfig' },
 	{ src = 'https://github.com/nvim-mini/mini.nvim' },
 	{ src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
 	{ src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('1') },
